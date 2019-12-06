@@ -1,0 +1,63 @@
+package basico;
+
+import java.util.ArrayList;
+
+public class Pessoa {
+	private String nome;
+	private String cidade;
+	private ArrayList conhecidos;
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String municipio) {
+		this.cidade = municipio;
+	}
+
+	public ArrayList getConhecidos() {
+		return conhecidos;
+	}
+
+	public void setConhecidos(ArrayList conhecidos) {
+		this.conhecidos = conhecidos;
+	}
+
+	public boolean isCurado() {
+		return curado;
+	}
+
+	public void setCurado(boolean curado) {
+		this.curado = curado;
+	}
+
+	private boolean curado;
+
+	public Pessoa()
+	{
+		
+	}
+	
+	public Pessoa(String nome,String municipio,ArrayList conhecido)
+	{
+		this.nome = nome;
+		this.cidade = municipio;
+		this.conhecidos = conhecidos;
+		
+	}
+	
+	public Pessoa(String nome,String municipio)
+	{
+		this.nome = nome;
+		this.cidade = municipio;
+		
+		
+	}
+}
