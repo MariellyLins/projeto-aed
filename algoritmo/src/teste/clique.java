@@ -2,6 +2,7 @@ package teste;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 import basico.Pessoa;
 import basico.RepositorioPessoa;
@@ -30,35 +31,90 @@ public class clique {
 		Pessoa Fernando = new Pessoa("Luiz Fernando","Camaragibe");
 		Pessoa Falcão = new Pessoa("Luiz F. Falcão","Recife");
 		
-		rep.addConhecido(MariaLucia,Falcão);
-		rep.addConhecido(MariaLucia,Fernando);
-		rep.addConhecido(MariaLucia,Fernanda);
-		rep.addConhecido(MariaLucia,Carlos);
-		rep.addConhecido(MariaLucia,MariadasDores);
-
-		rep.addConhecido(Carlos,Marielly);
-		rep.addConhecido(Carlos,Samuel);
-		rep.addConhecido(Carlos,Matheus);
-		rep.addConhecido(Carlos,Juliane);
+		rep.cadastrar(Falcão);
+		rep.cadastrar(Fernando);
+		rep.cadastrar(Fernanda);
+		rep.cadastrar(Lucas);
+		rep.cadastrar(Rodrigues);
+		rep.cadastrar(Samuel);
+		rep.cadastrar(Victor);
+		rep.cadastrar(Sabrina);
+		rep.cadastrar(Matheus);
+		rep.cadastrar(MariaGuilia);
+		rep.cadastrar(Maely);
+		rep.cadastrar(Jose);
+		rep.cadastrar(MariadasDores);
+		rep.cadastrar(Carlos);
+		rep.cadastrar(MariaLucia);
 		
-		rep.addConhecido(Marielly,Sabrina);
-		rep.addConhecido(Marielly,Matheus);
-		rep.addConhecido(Marielly,Maely);
-	    rep.addConhecido(Marielly,Jose);
-	    rep.addConhecido(Marielly,Lucas);
+
+		rep.addConhecidos(MariaLucia,Falcão);
+		rep.addConhecidos(MariaLucia,Fernando);
+		rep.addConhecidos(MariaLucia,Fernanda);
+		rep.addConhecidos(MariaLucia,Carlos);
+		rep.addConhecidos(MariaLucia,MariadasDores);
+
+		rep.addConhecidos(Carlos,Marielly);
+		rep.addConhecidos(Carlos,Samuel);
+		rep.addConhecidos(Carlos,Matheus);
+		rep.addConhecidos(Carlos,Juliane);
+		
+		rep.addConhecidos(Marielly,Sabrina);
+		rep.addConhecidos(Marielly,Matheus);
+		rep.addConhecidos(Marielly,Maely);
+	    rep.addConhecidos(Marielly,Jose);
+	    rep.addConhecidos(Marielly,Lucas);
 	    
-	    rep.addConhecido(Juliane,Lucas);
-	    rep.addConhecido(Juliane,Victor);
-	    rep.addConhecido(Juliane,Rodrigues);
-	    rep.addConhecido(Juliane,Jose);
-	    rep.addConhecido(Juliane,Maely);
-	    rep.addConhecido(Juliane,MariaGuilia);
+	    rep.addConhecidos(Juliane,Lucas);
+	    rep.addConhecidos(Juliane,Victor);
+	    rep.addConhecidos(Juliane,Rodrigues);
+	    rep.addConhecidos(Juliane,Jose);
+	    rep.addConhecidos(Juliane,Maely);
+	    rep.addConhecidos(Juliane,MariaGuilia);
+		Scanner sc = new Scanner(System.in);
+		System.out.println("----------------------------------------------------------\n\tPesquisa de Universidade Federal Rural");
+		String resp1="Sim";
+		while(resp1.equalsIgnoreCase("Sim"))
+		{
+			System.out.println("\tVocê deseja adicionar um participante? ");
+			resp1= sc.next();
+			while(!resp1.equalsIgnoreCase("Sim")&&!resp1.equalsIgnoreCase("Não")){
+				System.out.println("Digite uma resposta valida");
+				resp1 = sc.next();
+			}
+			if(resp1.equalsIgnoreCase("Sim")) {
+				System.out.println("Digite o nome do participante: ");
+				sc.nextLine();
+				String nome = sc.nextLine();
+				System.out.println("Digite a cidade em que ele reside: ");
+				String cidade = sc.nextLine();
+				System.out.println(rep.toString());
+				System.out.println("O/a participante tem contato direto com algum dos demais participantes listados acima?");
+				rep.cadastrar(new Pessoa(nome,cidade));
+				String resp2 = "Sim";
+				while(resp2.equalsIgnoreCase("Sim")) {
+					System.out.println("Digite seu numero correspondente ou  "+(rep.getPessoas().size()+1)+" para sair: ");
+					int posi = sc.nextInt();
+					if(posi!=rep.getPessoas().size()+1) {
+					  rep.addConhecidos(rep.buscar(nome),rep.buscarInt(posi));
+					}
+					System.out.println("Deseja adicionar mais conhecidos para esse participante? ");
+					resp2= sc.next();
+					while(!resp2.equalsIgnoreCase("Sim")&&!resp2.equalsIgnoreCase("Não")){
+						System.out.println("Digite uma resposta valida");
+						resp2 = sc.next();
+					}
+				}
+			}
+		    
 	    
+		}
+		//Um grafo seria uma ArrayList? 
+		System.out.println("Pessoas cadastradas para o experimento com o Discreta-Vírus:");
+	    System.out.println(rep.toString());
 	    ArrayList<Pessoa> moramEmInventado = rep.buscarPorCidade("Inventado");
 	    ArrayList<Pessoa> moramEmRecife = rep.buscarPorCidade("Recife");
-	    
-	    //Um grafo seria uma ArrayList? 
-	    
 	}
+		
 
 }
