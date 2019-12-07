@@ -15,6 +15,11 @@ public class RepositorioPessoa {
 		return instance;
 	}
 	
+	public void addConhecido(Pessoa p,Pessoa p1) {
+		p.addConhecidos(p1);
+		p1.addConhecidos(p);
+	}
+	
 	public void cadastrar(Pessoa p) {
 		pessoas.add(p);
 	}
