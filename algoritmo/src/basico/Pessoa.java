@@ -29,7 +29,9 @@ public class Pessoa {
 	public void setConhecidos(ArrayList conhecidos) {
 		this.conhecidos = conhecidos;
 	}
-
+	public void addConhecidos(Pessoa p) {
+		this.conhecidos.add(p);
+	}
 	public boolean isCurado() {
 		return curado;
 	}
