@@ -59,7 +59,11 @@ public class Pessoa {
 	{
 		this.nome = nome;
 		this.cidade = municipio;
+		this.conhecidos = new ArrayList<Pessoa>();
 		
-		
+	}
+	public String toString()
+	{
+		return this.nome + " mora em "+this.cidade;
 	}
 }
