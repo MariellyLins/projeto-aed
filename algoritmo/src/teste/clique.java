@@ -6,10 +6,15 @@ import java.util.Scanner;
 
 import basico.Pessoa;
 import basico.RepositorioPessoa;
+import org.graphstream.graph.*;
+import org.graphstream.graph.implementations.*;
 
 public class clique {
 
 	public static void main(String[] args) {
+		Graph grafo = new SingleGraph("Teste");
+		
+		
 		RepositorioPessoa rep = RepositorioPessoa.getInstance();
 		
 		//pessoas que possuem alguma doença X:
@@ -42,35 +47,45 @@ public class clique {
 		rep.cadastrar(Matheus);
 		rep.cadastrar(MariaGuilia);
 		rep.cadastrar(Maely);
+		rep.cadastrar(Marielly);
+		rep.cadastrar(Juliane);
 		rep.cadastrar(Jose);
 		rep.cadastrar(MariadasDores);
 		rep.cadastrar(Carlos);
 		rep.cadastrar(MariaLucia);
 		
 
-		rep.addConhecidos(MariaLucia,Falcão);
-		rep.addConhecidos(MariaLucia,Fernando);
-		rep.addConhecidos(MariaLucia,Fernanda);
-		rep.addConhecidos(MariaLucia,Carlos);
+
+        rep.addConhecidos(Fernando,Falcão);
+        rep.addConhecidos(Fernando, Samuel);
+        rep.addConhecidos(Jose, Falcão);
+        rep.addConhecidos(Jose, Samuel);
+        
+
+		rep.addConhecidos(MariaLucia,Matheus);
 		rep.addConhecidos(MariaLucia,MariadasDores);
+		rep.addConhecidos(Victor, Matheus);
+		rep.addConhecidos(Matheus, MariadasDores);
 
 		rep.addConhecidos(Carlos,Marielly);
-		rep.addConhecidos(Carlos,Samuel);
-		rep.addConhecidos(Carlos,Matheus);
+		rep.addConhecidos(Carlos,Maely);
+		rep.addConhecidos(Carlos,Fernanda);
 		rep.addConhecidos(Carlos,Juliane);
 		
 		rep.addConhecidos(Marielly,Sabrina);
-		rep.addConhecidos(Marielly,Matheus);
+		rep.addConhecidos(Marielly,Fernanda);
 		rep.addConhecidos(Marielly,Maely);
-	    rep.addConhecidos(Marielly,Jose);
+	    rep.addConhecidos(Marielly,Juliane);
 	    rep.addConhecidos(Marielly,Lucas);
 	    
+	   
+	    
 	    rep.addConhecidos(Juliane,Lucas);
-	    rep.addConhecidos(Juliane,Victor);
 	    rep.addConhecidos(Juliane,Rodrigues);
-	    rep.addConhecidos(Juliane,Jose);
+	    rep.addConhecidos(Juliane,Fernanda);
 	    rep.addConhecidos(Juliane,Maely);
 	    rep.addConhecidos(Juliane,MariaGuilia);
+	    
 		Scanner sc = new Scanner(System.in);
 		System.out.println("----------------------------------------------------------\n\tPesquisa de Universidade Federal Rural");
 		String resp1="Sim";
@@ -110,11 +125,34 @@ public class clique {
 	    
 		}
 		//Um grafo seria uma ArrayList? 
+		
+		for(int i=0;i<rep.getPessoas().size();i++) {
+			grafo.addNode(rep.buscarInt(i).getNome());
+			
+		}
+		for(int i=0;i<rep.getPessoas().size();i++) {
+			for(int j=0;j<rep.buscarInt(i).getConhecidos().size();j++) {
+               if((grafo.getEdge(rep.buscarInt(i).getConhecidos().get(j).getNome()+" conhece "+rep.buscarInt(i).getNome()))==null)
+				grafo.addEdge(rep.buscarInt(i).getNome()+" conhece "+rep.buscarInt(i).getConhecidos().get(j).getNome(), rep.buscarInt(i).getNome(),rep.buscarInt(i).getConhecidos().get(j).getNome());
+			}
+		}
+		
 		System.out.println("Pessoas cadastradas para o experimento com o Discreta-Vírus:");
 	    System.out.println(rep.toString());
+	    
+	    grafo.display();
 	    ArrayList<Pessoa> moramEmInventado = rep.buscarPorCidade("Inventado");
 	    ArrayList<Pessoa> moramEmRecife = rep.buscarPorCidade("Recife");
+	    ArrayList<Pessoa> moramEmVitoria = rep.buscarPorCidade("Vitória");
+	   
+	    
 	}
 		
 
 }
+
+
+
+
+
+

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Pessoa {
 	private String nome;
 	private String cidade;
-	private ArrayList conhecidos;
+	private ArrayList<Pessoa> conhecidos = new ArrayList<Pessoa>();
 	public String getNome() {
 		return nome;
 	}
@@ -22,7 +22,7 @@ public class Pessoa {
 		this.cidade = municipio;
 	}
 
-	public ArrayList getConhecidos() {
+	public ArrayList<Pessoa> getConhecidos() {
 		return conhecidos;
 	}
 
@@ -42,10 +42,6 @@ public class Pessoa {
 
 	private boolean curado;
 
-	public Pessoa()
-	{
-		
-	}
 	
 	public Pessoa(String nome,String municipio,ArrayList conhecido)
 	{
