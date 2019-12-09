@@ -33,7 +33,7 @@ public class RepositorioPessoa {
 
 	public static RepositorioPessoa getInstance(){
 		
-		if(instance==null) {
+		if(instance == null) {
 			instance = new RepositorioPessoa();
 		}
 		return instance;
@@ -90,7 +90,7 @@ public class RepositorioPessoa {
 			return null;
 	}
 	public ArrayList<Pessoa> buscarPorCidade(String cidade) {
-		ArrayList<Pessoa> pm = new ArrayList();
+		ArrayList<Pessoa> pm = new ArrayList<>();
 		for(int i=0;i<pessoas.size();i++) {
 			if(pessoas.get(i).getCidade().equalsIgnoreCase(cidade)){
 				pm.add(pessoas.get(i));
@@ -99,7 +99,7 @@ public class RepositorioPessoa {
 		return pm;
 	}
 	public ArrayList<Pessoa> connectComponents() {
-		ArrayList<Pessoa> cc = new ArrayList();
+		ArrayList<Pessoa> cc = new ArrayList<>();
 		for(int i=1;i<pessoas.size();i++) {
 			for(int j=0;j<pessoas.get(i).getConhecidos().size();j++){
 				if(pessoas.get(i-1).getConhecidos().contains(pessoas.get(i).getConhecidos().get(j))){
@@ -230,9 +230,10 @@ public class RepositorioPessoa {
 		//System.out.printf("%d connected component(s) no grafo.%n",cc.getConnectedComponentsCount());
 		
 	    grafo.display();
-	    ArrayList<Pessoa> moramEmInventado = rep.buscarPorCidade("Inventado");
-	    ArrayList<Pessoa> moramEmRecife = rep.buscarPorCidade("Recife");
-	    ArrayList<Pessoa> moramEmVitoria = rep.buscarPorCidade("Vitória");
+
+//	    ArrayList<Pessoa> moramEmInventado = rep.buscarPorCidade("Inventado");
+//	    ArrayList<Pessoa> moramEmRecife = rep.buscarPorCidade("Recife");
+//	    ArrayList<Pessoa> moramEmVitoria = rep.buscarPorCidade("Vitória");
 	   
 	    
     }

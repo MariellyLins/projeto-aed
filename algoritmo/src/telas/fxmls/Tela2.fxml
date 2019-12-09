@@ -19,8 +19,8 @@
             <Font name="Georgia Bold Italic" size="25.0" />
          </font>
       </Label>
-      <Button fx:id="Continuar" blendMode="SRC_ATOP" layoutX="51.0" layoutY="408.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="178.0" text="Nº de Vacinas necessárias" textFill="#577464" />
-      <Button fx:id="Adicionar" blendMode="SRC_ATOP" layoutX="300.0" layoutY="408.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="163.0" text="Cidade mais afetada" textFill="#577464" />
+      <Button fx:id="Continuar" blendMode="SRC_ATOP" layoutX="51.0" layoutY="408.0" mnemonicParsing="false" onAction="#CC" prefHeight="34.0" prefWidth="178.0" text="Nº de Vacinas necessárias" textFill="#577464" />
+      <Button fx:id="Adicionar" blendMode="SRC_ATOP" layoutX="300.0" layoutY="408.0" mnemonicParsing="false" onAction="#Clique" prefHeight="34.0" prefWidth="163.0" text="Cidade mais afetada" textFill="#577464" />
       <Label layoutX="48.0" layoutY="85.0" text="Para combater a superbactéria PM a UFRPE juntamente" textAlignment="CENTER" textFill="#ff2c2c">
          <font>
             <Font name="Georgia Bold Italic" size="16.0" />

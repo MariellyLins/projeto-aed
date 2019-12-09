@@ -3,17 +3,12 @@ package teste;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
-
 import basico.Pessoa;
 import basico.RepositorioPessoa;
 import org.graphstream.graph.*;
 import org.graphstream.graph.implementations.*;
-import org.graphstream.ui.spriteManager.*;
-import org.graphstream.ui.view.Viewer;
-
 import org.graphstream.algorithm.ConnectedComponents;
 import org.graphstream.graph.Graph;
-import org.graphstream.graph.implementations.DefaultGraph;
 
 public class clique {
 
@@ -173,9 +168,10 @@ public class clique {
 		System.out.printf("%d connected component(s) no grafo.%n",cc.getConnectedComponentsCount());
 		
 	    grafo.display();
-	    ArrayList<Pessoa> moramEmInventado = rep.buscarPorCidade("Inventado");
-	    ArrayList<Pessoa> moramEmRecife = rep.buscarPorCidade("Recife");
-	    ArrayList<Pessoa> moramEmVitoria = rep.buscarPorCidade("Vitória");
+	    
+//	    ArrayList<Pessoa> moramEmInventado = rep.buscarPorCidade("Inventado");
+//	    ArrayList<Pessoa> moramEmRecife = rep.buscarPorCidade("Recife");
+//	    ArrayList<Pessoa> moramEmVitoria = rep.buscarPorCidade("Vitória");
 	   
 	    
 	}

@@ -44,7 +44,7 @@ public class Pessoa {
 
 
 	
-	public Pessoa(String nome,String municipio,ArrayList conhecido)
+	public Pessoa(String nome, String municipio, ArrayList<Pessoa> conhecidos)
 	{
 		this.nome = nome;
 		this.cidade = municipio;

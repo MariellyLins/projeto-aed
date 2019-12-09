@@ -13,8 +13,13 @@ import gui.*;
 public class Test extends Application {
 
 	 RepositorioPessoa rep = RepositorioPessoa.getInstance();
+	 
 	    
 	public void start(Stage primaryStage) {
+		rep.iniciarPessoas();
+		System.out.println(rep.getCidades().isEmpty());
+		System.out.println(rep.getCidades());
+		System.out.println(rep.getPessoas());
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("/telas/fxmls/Tela1.fxml"));
 			Scene cena = new Scene(root);

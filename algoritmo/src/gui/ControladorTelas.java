@@ -1,14 +1,11 @@
 package gui;
 
 import java.io.IOException;
-
-
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 import basico.*;
-import telas.fxmls.*;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -62,6 +60,7 @@ public class ControladorTelas {
     private TableColumn<Pessoa, String> participantes;
     
     RepositorioPessoa rep = RepositorioPessoa.getInstance();
+    ConnectComponents c = new ConnectComponents();
    
     
     @FXML
@@ -72,7 +71,7 @@ public class ControladorTelas {
     	stage.setScene(cena);
     	stage.show();
     	
-    	//tudo();
+    	//CC();
     }
     
     @FXML
@@ -110,7 +109,7 @@ public class ControladorTelas {
     @FXML
     public void removerParticipante()
 	{
-    	rep.iniciarPessoas();
+    	
 		if(tabela.getSelectionModel().getSelectedItem() != null){
 			rep.remover(tabela.getSelectionModel().getSelectedItem());
 		}
@@ -118,12 +117,12 @@ public class ControladorTelas {
     @FXML
     public void CC() { 
     	//chamar nova tela para imprimir a quantidade de componentes conectados e ao apertar um botão mostrar o grafo
-    	rep.iniciarPessoas();
+    	System.out.println(c.retornarCC());
 		rep.acao();
 	}
     @FXML
     public void Clique() {
-    	rep.iniciarPessoas();
+    	
 		rep.acao();
     }
 
@@ -153,17 +152,16 @@ public class ControladorTelas {
 
     
     void iniciartabela1() {
-    	rep.iniciarPessoas();
     	cidade.setCellValueFactory(new PropertyValueFactory<>("cidade"));
     	tabela.setItems(FXCollections.observableArrayList(rep.getPessoas()));
     	tabela.refresh();
     	
     }
-   
+  
     void iniciartabela2() {
-    	participantes.setCellValueFactory(new PropertyValueFactory("nome"));
+    	participantes.setCellValueFactory(new PropertyValueFactory<>("nome"));
     	tabelapart.setItems(FXCollections.observableArrayList(rep.getPessoas()));
-    	tabelapart.refresh();
+    	tabela.refresh();
     	
     }
 
@@ -178,6 +176,6 @@ public class ControladorTelas {
         assert tabelapart != null : "fx:id=\"tabelapart\" was not injected: check your FXML file 'NovoParticipante2.fxml'.";
         assert participantes != null : "fx:id=\"participantes\" was not injected: check your FXML file 'NovoParticipante2.fxml'.";
         iniciartabela1();
-        iniciartabela2();
+        iniciartabela2();      
     }
 }
