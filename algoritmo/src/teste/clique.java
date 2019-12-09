@@ -8,11 +8,18 @@ import basico.Pessoa;
 import basico.RepositorioPessoa;
 import org.graphstream.graph.*;
 import org.graphstream.graph.implementations.*;
+import org.graphstream.ui.spriteManager.*;
+import org.graphstream.ui.view.Viewer;
+
+import org.graphstream.algorithm.ConnectedComponents;
+import org.graphstream.graph.Graph;
+import org.graphstream.graph.implementations.DefaultGraph;
 
 public class clique {
 
 	public static void main(String[] args) {
 		Graph grafo = new SingleGraph("Teste");
+		
 		
 		
 		RepositorioPessoa rep = RepositorioPessoa.getInstance();
@@ -58,7 +65,7 @@ public class clique {
 
         rep.addConhecidos(Fernando,Falcão);
         rep.addConhecidos(Fernando, Samuel);
-        rep.addConhecidos(Jose, Falcão);
+        rep.addConhecidos(Samuel, Falcão);
         rep.addConhecidos(Jose, Samuel);
         
 
@@ -66,6 +73,7 @@ public class clique {
 		rep.addConhecidos(MariaLucia,MariadasDores);
 		rep.addConhecidos(Victor, Matheus);
 		rep.addConhecidos(Matheus, MariadasDores);
+		rep.addConhecidos(Victor, MariadasDores);
 
 		rep.addConhecidos(Carlos,Marielly);
 		rep.addConhecidos(Carlos,Maely);
@@ -82,6 +90,7 @@ public class clique {
 	    
 	    rep.addConhecidos(Juliane,Lucas);
 	    rep.addConhecidos(Juliane,Rodrigues);
+	    rep.addConhecidos(MariaGuilia,Rodrigues);
 	    rep.addConhecidos(Juliane,Fernanda);
 	    rep.addConhecidos(Juliane,Maely);
 	    rep.addConhecidos(Juliane,MariaGuilia);
@@ -140,6 +149,29 @@ public class clique {
 		System.out.println("Pessoas cadastradas para o experimento com o Discreta-Vírus:");
 	    System.out.println(rep.toString());
 	    
+	    //SpriteManager sman = new SpriteManager(grafo);
+	   // Sprite s = sman.addSprite("S1");
+	   // s.attachToNode("Maely Coutinho");
+	    
+	    System.setProperty("org.graphstream.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
+	    
+	   // Viewer viewer = grafo.display();
+	   // viewer.disableAutoLayout();
+	    
+	    
+	   // viewer.enableAutoLayout();
+	    
+	   // grafo.addAttribute("ui.stylesheet", "url('//Users//Maely//git//projeto-aednew//algoritmo//GS/População_pernambuco')");
+	    grafo.addAttribute("ui.stylesheet", "graph { fill-color: green; }");
+	    grafo.addAttribute("ui.stylesheet", "node {fill-color: red;size: 10px, 10px;fill-mode: plain;stroke-mode: plain;stroke-color: black; }");
+	    for (Node node : grafo) {
+	        node.addAttribute("ui.label", node.getId());
+	    }
+	    ConnectedComponents cc = new ConnectedComponents();
+		cc.init(grafo);
+
+		System.out.printf("%d connected component(s) no grafo.%n",cc.getConnectedComponentsCount());
+		
 	    grafo.display();
 	    ArrayList<Pessoa> moramEmInventado = rep.buscarPorCidade("Inventado");
 	    ArrayList<Pessoa> moramEmRecife = rep.buscarPorCidade("Recife");
