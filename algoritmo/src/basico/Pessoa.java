@@ -28,7 +28,7 @@ public class Pessoa {
 		return conhecidos;
 	}
 
-	public void setConhecidos(ArrayList conhecidos) {
+	public void setConhecidos(ArrayList<Pessoa> conhecidos) {
 		this.conhecidos = conhecidos;
 	}
 	public void addConhecidos(Pessoa p) {

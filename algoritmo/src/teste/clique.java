@@ -1,7 +1,6 @@
 package teste;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 import basico.Pessoa;
 import basico.RepositorioPessoa;
