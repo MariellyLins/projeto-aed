@@ -25,9 +25,9 @@ import javafx.scene.control.Alert;
 
 
 public class RepositorioPessoa {
-	private ArrayList<Pessoa> pessoas  = new ArrayList(); //grafo
+	private ArrayList<Pessoa> pessoas  = new ArrayList<Pessoa>(); 
 	public static RepositorioPessoa instance;
-	private ArrayList<String> cidades = new ArrayList();
+	private ArrayList<String> cidades = new ArrayList<String>();
 	 public Graph grafo = new SingleGraph("Teste");
 	
 
@@ -74,6 +74,7 @@ public class RepositorioPessoa {
 	}
 
 	public void cadastrar(Pessoa p) {
+		if(!pessoas.contains(p))
 		pessoas.add(p);
 	}
 	
@@ -235,5 +236,6 @@ public class RepositorioPessoa {
 	   
 	    
     }
+    
     	
 }

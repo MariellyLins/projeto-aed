@@ -3,9 +3,11 @@ package basico;
 import java.util.ArrayList;
 
 public class Pessoa {
-	private String nome;
-	private String cidade;
+	private String nome = new String();
+	private String cidade= new String();
 	private ArrayList<Pessoa> conhecidos = new ArrayList<Pessoa>();
+	private boolean curado;
+	
 	public String getNome() {
 		return nome;
 	}
@@ -40,7 +42,6 @@ public class Pessoa {
 		this.curado = curado;
 	}
 
-	private boolean curado;
 
 	
 	public Pessoa(String nome,String municipio,ArrayList conhecido)
@@ -62,4 +63,10 @@ public class Pessoa {
 	{
 		return this.nome + " mora em "+this.cidade;
 	}
+	public boolean equals(Pessoa p) {
+    	if(p.getNome().equalsIgnoreCase(this.getNome())) {
+    		return true;
+    	}
+    	return false;
+    }
 }
