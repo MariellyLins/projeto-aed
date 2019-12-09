@@ -28,7 +28,7 @@ public class Pessoa {
 		return conhecidos;
 	}
 
-	public void setConhecidos(ArrayList conhecidos) {
+	public void setConhecidos(ArrayList<Pessoa> conhecidos) {
 		this.conhecidos = conhecidos;
 	}
 	public void addConhecidos(Pessoa p) {
@@ -44,7 +44,7 @@ public class Pessoa {
 
 
 	
-	public Pessoa(String nome,String municipio,ArrayList conhecido)
+	public Pessoa(String nome, String municipio, ArrayList<Pessoa> conhecidos)
 	{
 		this.nome = nome;
 		this.cidade = municipio;

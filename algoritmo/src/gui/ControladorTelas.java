@@ -1,13 +1,9 @@
 package gui;
 
 import java.io.IOException;
-
-
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 import basico.*;
-import telas.fxmls.*;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -161,7 +157,7 @@ public class ControladorTelas {
     }
    
     void iniciartabela2() {
-    	participantes.setCellValueFactory(new PropertyValueFactory("nome"));
+    	participantes.setCellValueFactory(new PropertyValueFactory<>("nome"));
     	tabelapart.setItems(FXCollections.observableArrayList(rep.getPessoas()));
     	tabelapart.refresh();
     	
