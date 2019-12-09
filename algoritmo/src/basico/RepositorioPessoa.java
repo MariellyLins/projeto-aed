@@ -42,7 +42,6 @@ public class RepositorioPessoa {
 	private RepositorioPessoa() {
 		cidades.add("Vitória");
 		cidades.add("Recife");
-		cidades.add("Jaboatão");
 		cidades.add("Não existe");
 		cidades.add("Olinda");
 		cidades.add("Ribeirão");
