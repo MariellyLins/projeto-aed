@@ -1,0 +1,5 @@
+EU tentei deixar tudo junto já pra facilitar, mas não sei se vai funcionar. 
+Se o programa der problema, dizendo que vcs não tem a aplicação ou algo assim,
+vão no projeto, cliquem em propriedades, vão em library e add jar e 
+selecionem os três arquivos em GS no proprio projeto, se não aparecer essa pasta
+vão em add external jar, e procurem por essa pasta e façam isso.
