@@ -40,11 +40,11 @@ public class RepositorioPessoa {
 	}
 	
 	private RepositorioPessoa() {
-		cidades.add("Vitória");
+		cidades.add("Vitï¿½ria");
 		cidades.add("Recife");
-		cidades.add("Não existe");
+		cidades.add("Nï¿½o existe");
 		cidades.add("Olinda");
-		cidades.add("Ribeirão");
+		cidades.add("Ribeirï¿½o");
 		cidades.add("Socorro");
 		cidades.add("Inventado");
 		cidades.add("Boa Viagem");
@@ -135,23 +135,23 @@ public class RepositorioPessoa {
 		RepositorioPessoa rep = RepositorioPessoa.getInstance();
 		Pessoa MariaLucia = new Pessoa("Maria Lucia da Silva","Inventado");
 		Pessoa MariadasDores = new Pessoa("Maria das Dores Costa","Inventado");
-		Pessoa Carlos = new Pessoa("Carlos Bragão","Não existe");
-		Pessoa Jose = new Pessoa("José Rocha","Vitória");
-		Pessoa Marielly = new Pessoa("Marielly","Ribeirão");
+		Pessoa Carlos = new Pessoa("Carlos Bragï¿½o","Nï¿½o existe");
+		Pessoa Jose = new Pessoa("Josï¿½ Rocha","Vitï¿½ria");
+		Pessoa Marielly = new Pessoa("Marielly","Ribeirï¿½o");
 		Pessoa Juliane = new Pessoa("Juliane","Inventado");
 		Pessoa Maely = new Pessoa("Maely Coutinho","Socorro");
-		Pessoa MariaGuilia = new Pessoa("Maria Guilia","Vitória");
+		Pessoa MariaGuilia = new Pessoa("Maria Guilia","Vitï¿½ria");
 		Pessoa Fernanda = new Pessoa("Fernanda","Recife");
 		Pessoa Sabrina = new Pessoa("Sabrina","Recife");
 		Pessoa Matheus = new Pessoa("Matheus Felipe","Inventado");
-		Pessoa Victor = new Pessoa("João Victor","Olinda");
+		Pessoa Victor = new Pessoa("Joï¿½o Victor","Olinda");
 		Pessoa Samuel = new Pessoa("Samuel Justino","Recife");
-		Pessoa Rodrigues = new Pessoa("José Rodrigues","Vitória");
+		Pessoa Rodrigues = new Pessoa("Josï¿½ Rodrigues","Vitï¿½ria");
 		Pessoa Lucas = new Pessoa("Lucas","Boa Viagem");
 		Pessoa Fernando = new Pessoa("Luiz Fernando","Camaragibe");
-		Pessoa Falcão = new Pessoa("Luiz F. Falcão","Recife");
+		Pessoa Falcao = new Pessoa("Luiz F. Falcï¿½o","Recife");
 		
-		rep.cadastrar(Falcão);
+		rep.cadastrar(Falcao);
 		rep.cadastrar(Fernando);
 		rep.cadastrar(Fernanda);
 		rep.cadastrar(Lucas);
@@ -171,9 +171,9 @@ public class RepositorioPessoa {
 		
 
 
-        rep.addConhecidos(Fernando,Falcão);
+        rep.addConhecidos(Fernando,Falcao);
         rep.addConhecidos(Fernando, Samuel);
-        rep.addConhecidos(Samuel, Falcão);
+        rep.addConhecidos(Samuel, Falcao);
         rep.addConhecidos(Jose, Samuel);
         
 
@@ -233,7 +233,7 @@ public class RepositorioPessoa {
 
 //	    ArrayList<Pessoa> moramEmInventado = rep.buscarPorCidade("Inventado");
 //	    ArrayList<Pessoa> moramEmRecife = rep.buscarPorCidade("Recife");
-//	    ArrayList<Pessoa> moramEmVitoria = rep.buscarPorCidade("Vitória");
+//	    ArrayList<Pessoa> moramEmVitoria = rep.buscarPorCidade("Vitï¿½ria");
 	   
 	    
     }

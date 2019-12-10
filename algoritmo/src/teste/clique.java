@@ -1,13 +1,12 @@
 package teste;
 
-import java.util.ArrayList;
 import java.util.Scanner;
-import basico.Pessoa;
-import basico.RepositorioPessoa;
-import org.graphstream.graph.*;
-import org.graphstream.graph.implementations.*;
 import org.graphstream.algorithm.ConnectedComponents;
 import org.graphstream.graph.Graph;
+import org.graphstream.graph.Node;
+import org.graphstream.graph.implementations.SingleGraph;
+import basico.Pessoa;
+import basico.RepositorioPessoa;
 
 public class clique {
 
@@ -18,26 +17,26 @@ public class clique {
 		
 		RepositorioPessoa rep = RepositorioPessoa.getInstance();
 		
-		//pessoas que possuem alguma doença X:
+		//pessoas que possuem alguma doenï¿½a X:
 		Pessoa MariaLucia = new Pessoa("Maria Lucia da Silva","Inventado");
 		Pessoa MariadasDores = new Pessoa("Maria das Dores Costa","Inventado");
-		Pessoa Carlos = new Pessoa("Carlos Bragão","Não existe");
-		Pessoa Jose = new Pessoa("José Rocha","Vitória");
-		Pessoa Marielly = new Pessoa("Marielly","Ribeirão");
+		Pessoa Carlos = new Pessoa("Carlos Bragï¿½o","Nï¿½o existe");
+		Pessoa Jose = new Pessoa("Josï¿½ Rocha","Vitï¿½ria");
+		Pessoa Marielly = new Pessoa("Marielly","Ribeirï¿½o");
 		Pessoa Juliane = new Pessoa("Juliane","Inventado");
 		Pessoa Maely = new Pessoa("Maely Coutinho","Socorro");
-		Pessoa MariaGuilia = new Pessoa("Maria Guilia","Vitória");
+		Pessoa MariaGuilia = new Pessoa("Maria Guilia","Vitï¿½ria");
 		Pessoa Fernanda = new Pessoa("Fernanda","Recife");
 		Pessoa Sabrina = new Pessoa("Sabrina","Recife");
 		Pessoa Matheus = new Pessoa("Matheus Felipe","Inventado");
-		Pessoa Victor = new Pessoa("João Victor","Olinda");
+		Pessoa Victor = new Pessoa("Joï¿½o Victor","Olinda");
 		Pessoa Samuel = new Pessoa("Samuel Justino","Recife");
-		Pessoa Rodrigues = new Pessoa("José Rodrigues","Vitória");
+		Pessoa Rodrigues = new Pessoa("Josï¿½ Rodrigues","Vitï¿½ria");
 		Pessoa Lucas = new Pessoa("Lucas","Boa Viagem");
 		Pessoa Fernando = new Pessoa("Luiz Fernando","Camaragibe");
-		Pessoa Falcão = new Pessoa("Luiz F. Falcão","Recife");
+		Pessoa Falcao = new Pessoa("Luiz F. Falcï¿½o","Recife");
 		
-		rep.cadastrar(Falcão);
+		rep.cadastrar(Falcao);
 		rep.cadastrar(Fernando);
 		rep.cadastrar(Fernanda);
 		rep.cadastrar(Lucas);
@@ -57,9 +56,9 @@ public class clique {
 		
 
 
-        rep.addConhecidos(Fernando,Falcão);
+        rep.addConhecidos(Fernando,Falcao);
         rep.addConhecidos(Fernando, Samuel);
-        rep.addConhecidos(Samuel, Falcão);
+        rep.addConhecidos(Samuel, Falcao);
         rep.addConhecidos(Jose, Samuel);
         
 
@@ -94,9 +93,9 @@ public class clique {
 		String resp1="Sim";
 		while(resp1.equalsIgnoreCase("Sim"))
 		{
-			System.out.println("\tVocê deseja adicionar um participante? ");
+			System.out.println("\tVocï¿½ deseja adicionar um participante? ");
 			resp1= sc.next();
-			while(!resp1.equalsIgnoreCase("Sim")&&!resp1.equalsIgnoreCase("Não")){
+			while(!resp1.equalsIgnoreCase("Sim")&&!resp1.equalsIgnoreCase("Nï¿½o")){
 				System.out.println("Digite uma resposta valida");
 				resp1 = sc.next();
 			}
@@ -118,7 +117,7 @@ public class clique {
 					}
 					System.out.println("Deseja adicionar mais conhecidos para esse participante? ");
 					resp2= sc.next();
-					while(!resp2.equalsIgnoreCase("Sim")&&!resp2.equalsIgnoreCase("Não")){
+					while(!resp2.equalsIgnoreCase("Sim")&&!resp2.equalsIgnoreCase("Nï¿½o")){
 						System.out.println("Digite uma resposta valida");
 						resp2 = sc.next();
 					}
@@ -140,7 +139,7 @@ public class clique {
 			}
 		}
 		
-		System.out.println("Pessoas cadastradas para o experimento com o Discreta-Vírus:");
+		System.out.println("Pessoas cadastradas para o experimento com o Discreta-Vï¿½rus:");
 	    System.out.println(rep.toString());
 	    
 	    //SpriteManager sman = new SpriteManager(grafo);
@@ -155,7 +154,7 @@ public class clique {
 	    
 	   // viewer.enableAutoLayout();
 	    
-	   // grafo.addAttribute("ui.stylesheet", "url('//Users//Maely//git//projeto-aednew//algoritmo//GS/População_pernambuco')");
+	   // grafo.addAttribute("ui.stylesheet", "url('//Users//Maely//git//projeto-aednew//algoritmo//GS/Populaï¿½ï¿½o_pernambuco')");
 	    grafo.addAttribute("ui.stylesheet", "graph { fill-color: green; }");
 	    grafo.addAttribute("ui.stylesheet", "node {fill-color: red;size: 10px, 10px;fill-mode: plain;stroke-mode: plain;stroke-color: black; }");
 	    for (Node node : grafo) {
@@ -170,7 +169,7 @@ public class clique {
 	    
 //	    ArrayList<Pessoa> moramEmInventado = rep.buscarPorCidade("Inventado");
 //	    ArrayList<Pessoa> moramEmRecife = rep.buscarPorCidade("Recife");
-//	    ArrayList<Pessoa> moramEmVitoria = rep.buscarPorCidade("Vitória");
+//	    ArrayList<Pessoa> moramEmVitoria = rep.buscarPorCidade("Vitï¿½ria");
 	   
 	    
 	}
