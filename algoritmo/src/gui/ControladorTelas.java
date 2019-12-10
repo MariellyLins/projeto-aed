@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import basico.*;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -20,19 +22,19 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Alert;
 
-
 public class ControladorTelas {
 
     @FXML
     private ResourceBundle resources;
     @FXML
-	private Stage dialogStage;
+    private Stage dialogStage;
+
     @FXML
     private URL location;
+
     @FXML
     private Button Continuar;
-    @FXML
-    private Button Voltar;
+
     @FXML
     private Button Adicionar;
     @FXML
@@ -40,10 +42,10 @@ public class ControladorTelas {
     @FXML
     private TableView<Pessoa> tabela;
     @FXML
-    private TableColumn<Pessoa,String> cidade;
+    private TableColumn<Pessoa, String> cidade;
     @FXML
     private Button add;
-    
+
     @FXML
     private Button adicionarLigacao;
 
@@ -55,113 +57,131 @@ public class ControladorTelas {
 
     @FXML
     private TableColumn<Pessoa, String> participantes;
-    
+
     RepositorioPessoa rep = RepositorioPessoa.getInstance();
     ConnectComponents c = new ConnectComponents();
-   
-    
+
     @FXML
     void Continuar(ActionEvent event) throws IOException {
-    	Parent janela = FXMLLoader.load(getClass().getResource("/telas/fxmls/Tela2.fxml"));
-    	Scene cena = new Scene(janela);
-    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    	stage.setScene(cena);
-    	stage.show();
-    	
-    	//CC();
+        Parent janela = FXMLLoader.load(getClass().getResource("/telas/fxmls/Tela2.fxml"));
+        Scene cena = new Scene(janela);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(cena);
+        stage.show();
+
+        //CC();
     }
-    
+
     @FXML
     void Adicionar(ActionEvent event) throws IOException {
-    	Parent janela = FXMLLoader.load(getClass().getResource("/telas/fxmls/NovoParticipante.fxml"));
-    	Scene cena = new Scene(janela);
+        Parent janela = FXMLLoader.load(getClass().getResource("/telas/fxmls/NovoParticipante.fxml"));
+        Scene cena = new Scene(janela);
         Stage stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
-    	stage.setScene(cena);
-    	stage.show();
-    	
+        stage.setScene(cena);
+        stage.show();
+
     }
+
     @FXML
-    public void NovoParticipante() {
-       
-       	if(!((String)nome.getText()).isEmpty() && tabela.getSelectionModel().getSelectedItem() != null){
-       		Pessoa p = new Pessoa((String)nome.getText(),tabela.getSelectionModel().getSelectedItem().getCidade());
-   	    	rep.cadastrar(p);   			
-       	}
-       	else if(tabela.getSelectionModel().getSelectedItem() != null) {
-       		   Alert alert = new Alert(AlertType.ERROR);
-               alert.initOwner(dialogStage);
-               alert.setTitle("Nome Inválido");
-               alert.setHeaderText("Por favor, digite um nome válido");
-               alert.setContentText("O nome do Participante não pode ser vazio");
-               alert.showAndWait();
-       	}else {
-       		Alert alert = new Alert(AlertType.ERROR);
+    public void NovoParticipante(ActionEvent event) throws IOException {
+
+        if (!((String) nome.getText()).isEmpty() && tabela.getSelectionModel().getSelectedItem() != null) {
+            Pessoa p = new Pessoa((String) nome.getText(), tabela.getSelectionModel().getSelectedItem().getCidade());
+            rep.cadastrar(p);
+        } else if (tabela.getSelectionModel().getSelectedItem() != null) {
+            Alert alert = new Alert(AlertType.ERROR);
             alert.initOwner(dialogStage);
-            alert.setTitle("Cidade não selecionada");
-            alert.setHeaderText("Por favor, selecione uma cidade");
-            alert.setContentText("A cidade do Participante não pode ser vazia");
+            alert.setTitle("Nome Invalido");
+            alert.setHeaderText("Por favor, digite um nome valido");
+            alert.setContentText("O nome do Participante nao pode ser vazio");
             alert.showAndWait();
-       	}
-   	}
+        } else {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.initOwner(dialogStage);
+            alert.setTitle("Cidade nao selecionada");
+            alert.setHeaderText("Por favor, selecione uma cidade");
+            alert.setContentText("A cidade do Participante nao pode ser vazia");
+            alert.showAndWait();
+        }
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/telas/fxmls/NovoParticipante2.fxml"));
+            Scene cena = new Scene(root);
+            Stage stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
+            stage.setScene(cena);
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+    }
+
     @FXML
-    public void removerParticipante()
-	{
-    	
-		if(tabela.getSelectionModel().getSelectedItem() != null){
-			rep.remover(tabela.getSelectionModel().getSelectedItem());
-		}
-	}
+    public void removerParticipante() {
+
+        if (tabela.getSelectionModel().getSelectedItem() != null) {
+            rep.remover(tabelapart.getSelectionModel().getSelectedItem());
+        }
+    }
+
     @FXML
-    public void CC() { 
-    	//chamar nova tela para imprimir a quantidade de componentes conectados e ao apertar um botão mostrar o grafo
-    	System.out.println(c.retornarCC());
-		rep.acao();
-	}
+    public void CC() {
+        //chamar nova tela para imprimir a quantidade de componentes conectados e ao apertar um botao mostrar o grafo
+        System.out.println(c.retornarCC());
+        rep.acao();
+    }
+
     @FXML
     public void Clique() {
-    	
-		rep.acao();
+
+        rep.acao();
     }
 
     @FXML
     void AddLigacao(ActionEvent event) {
-    	if(tabelapart.getSelectionModel().getSelectedItem() != null)
-          rep.addConhecidos(rep.buscarInt((rep.getPessoas().size()-1)), tabelapart.getSelectionModel().getSelectedItem());
-    	else {
-    		Alert alert = new Alert(AlertType.ERROR);
+        if (tabelapart.getSelectionModel().getSelectedItem() != null) {
+            rep.addConhecidos(rep.buscarInt((rep.getPessoas().size() - 1)), tabelapart.getSelectionModel().getSelectedItem());
+        } else {
+            Alert alert = new Alert(AlertType.ERROR);
             alert.initOwner(dialogStage);
-            alert.setTitle("Conecção Inválida");
+            alert.setTitle("Conexao Invalida");
             alert.setHeaderText("Por favor, selecione um participante primeiro");
-            alert.setContentText("O nome do Participante não pode ser vazio");
+            alert.setContentText("O nome do Participante nao pode ser vazio");
             alert.showAndWait();
-    	}
-    		
+        }
+
     }
 
     @FXML
     void Sair(ActionEvent event) {
-         try {
-			Continuar(event);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+        try {
+            Parent janela = FXMLLoader.load(getClass().getResource("/telas/fxmls/Tela1.fxml"));
+            Scene cena = new Scene(janela);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(cena);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    
+    @FXML
     void iniciartabela1() {
-    	cidade.setCellValueFactory(new PropertyValueFactory<>("cidade"));
-    	tabela.setItems(FXCollections.observableArrayList(rep.getPessoas()));
-    	tabela.refresh();
-    	
-    }
-  
-    void iniciartabela2() {
-    	participantes.setCellValueFactory(new PropertyValueFactory<>("nome"));
-    	tabelapart.setItems(FXCollections.observableArrayList(rep.getPessoas()));
-    	tabela.refresh();
-    	
+        cidade.setCellValueFactory(new PropertyValueFactory<>("cidade"));
+        tabela.setItems(FXCollections.observableList(rep.getCid()));
+        tabela.refresh();
+
     }
 
+    @FXML
+    void iniciartabela2() {
+        participantes.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        tabelapart.setItems(FXCollections.observableList(rep.getPessoas()));
+        tabelapart.refresh();
+
+    }
+
+    @FXML
     void initialize() {
         assert Continuar != null : "fx:id=\"Continuar\" was not injected: check your FXML file 'Tela1.fxml'.";
         assert Adicionar != null : "fx:id=\"Adicionar\" was not injected: check your FXML file 'Tela1.fxml'.";
@@ -172,7 +192,16 @@ public class ControladorTelas {
         assert sair != null : "fx:id=\"sair\" was not injected: check your FXML file 'NovoParticipante2.fxml'.";
         assert tabelapart != null : "fx:id=\"tabelapart\" was not injected: check your FXML file 'NovoParticipante2.fxml'.";
         assert participantes != null : "fx:id=\"participantes\" was not injected: check your FXML file 'NovoParticipante2.fxml'.";
-        iniciartabela1();
-        iniciartabela2();      
+        try {
+            iniciartabela1();
+        } catch (NullPointerException e) {
+            //e.printStackTrace();
+        }
+        try {
+            iniciartabela2();
+        } catch (NullPointerException e) {
+            //e.printStackTrace();
+        }
+
     }
 }
