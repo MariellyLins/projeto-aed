@@ -21,14 +21,12 @@ public class Test extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("/telas/fxmls/Tela1.fxml"));
 			Scene cena = new Scene(root);
 			primaryStage.setScene(cena);
-			primaryStage.setTitle("Alg");
+			primaryStage.setTitle("Algoritmos' Project");
 			primaryStage.show();
 			} catch(Exception e) {
 			e.printStackTrace();
 			
-		}
-		
-		
+		}	
 	}
 	public static void main(String[] args) {
 		
