@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="486.0" prefWidth="575.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ControladorTelas">
+   <children>
+      <ImageView fitHeight="486.0" fitWidth="575.0">
+         <image>
+            <Image url="@../../imagens/bacteriofago.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="178.0" layoutY="37.0" prefHeight="55.0" prefWidth="326.0" text="Bem-vindo(a)" textFill="#69eda6">
+         <font>
+            <Font name="Georgia Bold Italic" size="39.0" />
+         </font>
+      </Label>
+      <Label layoutX="107.0" layoutY="100.0" text="ao Algoritm's projetc" textFill="#69eda6">
+         <font>
+            <Font name="Georgia Bold Italic" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="29.0" layoutY="204.0" text="Clique em Continuar para ir para o projeto ou Adicionar para adicionar participante" textAlignment="CENTER" textFill="#9effca">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Button fx:id="Continuar" blendMode="HARD_LIGHT" layoutX="133.0" layoutY="268.0" mnemonicParsing="false" onAction="#Continuar" prefHeight="34.0" prefWidth="100.0" text="Continuar" textFill="#577464" />
+      <Button fx:id="Adicionar" blendMode="HARD_LIGHT" layoutX="348.0" layoutY="268.0" mnemonicParsing="false" onAction="#Adicionar" prefHeight="34.0" prefWidth="100.0" text="Adicionar" textFill="#577464" />
+   </children>
+</AnchorPane>
