@@ -115,22 +115,6 @@ public class RepositorioPessoa {
 		}
 		return pm;
 	}
-	public ArrayList<Pessoa> connectComponents() {
-		ArrayList<Pessoa> cc = new ArrayList<>();
-		for(int i=1;i<pessoas.size();i++) {
-			for(int j=0;j<pessoas.get(i).getConhecidos().size();j++){
-				if(pessoas.get(i-1).getConhecidos().contains(pessoas.get(i).getConhecidos().get(j))){
-					cc.addAll(pessoas.get(i-1).getConhecidos());
-					cc.addAll(pessoas.get(i).getConhecidos());
-					//t = true;
-				}
-			}
-			
-		}
-		return cc;
-
-	}
-	
 	public String toString(){
 		String a;
 		String b="";
@@ -227,29 +211,29 @@ public class RepositorioPessoa {
 		for(int i=0;i<pessoasPorCidade.size();i++) {
 			for(int j=0;j<cidades.size();j++) {
 				if(pessoasPorCidade.get(i).getCidade().equalsIgnoreCase(cidades.get(j))) {
-					 pessoasPorCidade.get(i).setConhecidos(buscarPorCidade(cidades.get(j)));
-				     pessoasPorCidade.get(i).getConhecidos().remove(pessoasPorCidade.get(i));
+					 pessoasPorCidade.get(i).setVizinhos(buscarPorCidade(cidades.get(j)));
+				     pessoasPorCidade.get(i).getVizinhos().remove(pessoasPorCidade.get(i));
 				}
 				    
 			}
 		}
 		
-		this.pessoasPorCidade.get(3).addConhecidos(this.pessoasPorCidade.get(5));
-		this.pessoasPorCidade.get(5).addConhecidos(this.pessoasPorCidade.get(3));
-		this.pessoasPorCidade.get(11).addConhecidos(this.pessoasPorCidade.get(5));
-		this.pessoasPorCidade.get(5).addConhecidos(this.pessoasPorCidade.get(11));
-		this.pessoasPorCidade.get(6).addConhecidos(this.pessoasPorCidade.get(2));
-		this.pessoasPorCidade.get(2).addConhecidos(this.pessoasPorCidade.get(6));
-		this.pessoasPorCidade.get(2).addConhecidos(this.pessoasPorCidade.get(1));
-		this.pessoasPorCidade.get(1).addConhecidos(this.pessoasPorCidade.get(2));
-		this.pessoasPorCidade.get(8).addConhecidos(this.pessoasPorCidade.get(10));
-		this.pessoasPorCidade.get(10).addConhecidos(this.pessoasPorCidade.get(8));
-		this.pessoasPorCidade.get(15).addConhecidos(this.pessoasPorCidade.get(10));
-		this.pessoasPorCidade.get(10).addConhecidos(this.pessoasPorCidade.get(15));
-		this.pessoasPorCidade.get(15).addConhecidos(this.pessoasPorCidade.get(11));
-		this.pessoasPorCidade.get(11).addConhecidos(this.pessoasPorCidade.get(15));
-		this.pessoasPorCidade.get(15).addConhecidos(this.pessoasPorCidade.get(4));
-		this.pessoasPorCidade.get(4).addConhecidos(this.pessoasPorCidade.get(15));
+		this.pessoasPorCidade.get(3).getVizinhos().add(this.pessoasPorCidade.get(5));
+		this.pessoasPorCidade.get(5).getVizinhos().add(this.pessoasPorCidade.get(3));
+		this.pessoasPorCidade.get(11).getVizinhos().add(this.pessoasPorCidade.get(5));
+		this.pessoasPorCidade.get(5).getVizinhos().add(this.pessoasPorCidade.get(11));
+		this.pessoasPorCidade.get(6).getVizinhos().add(this.pessoasPorCidade.get(2));
+		this.pessoasPorCidade.get(2).getVizinhos().add(this.pessoasPorCidade.get(6));
+		this.pessoasPorCidade.get(2).getVizinhos().add(this.pessoasPorCidade.get(1));
+		this.pessoasPorCidade.get(1).getVizinhos().add(this.pessoasPorCidade.get(2));
+		this.pessoasPorCidade.get(8).getVizinhos().add(this.pessoasPorCidade.get(10));
+		this.pessoasPorCidade.get(10).getVizinhos().add(this.pessoasPorCidade.get(8));
+		this.pessoasPorCidade.get(15).getVizinhos().add(this.pessoasPorCidade.get(10));
+		this.pessoasPorCidade.get(10).getVizinhos().add(this.pessoasPorCidade.get(15));
+		this.pessoasPorCidade.get(15).getVizinhos().add(this.pessoasPorCidade.get(11));
+		this.pessoasPorCidade.get(11).getVizinhos().add(this.pessoasPorCidade.get(15));
+		this.pessoasPorCidade.get(15).getVizinhos().add(this.pessoasPorCidade.get(4));
+		this.pessoasPorCidade.get(4).getVizinhos().add(this.pessoasPorCidade.get(15));
 		
 		
 		
@@ -285,9 +269,9 @@ public class RepositorioPessoa {
         	 grafoCidade.addNode(this.pessoasPorCidade.get(i).getNome());
          }
          for (int i = 0; i < this.pessoasPorCidade.size(); i++) {
-             for (int j = 0; j <this.pessoasPorCidade.get(i).getConhecidos().size(); j++) {
-                 if (( grafoCidade.getEdge(this.pessoasPorCidade.get(i).getConhecidos().get(j).getNome() + " conhece " + this.pessoasPorCidade.get(i).getNome())) == null) {
-                	 grafoCidade.addEdge(this.pessoasPorCidade.get(i).getNome() + " conhece " + this.pessoasPorCidade.get(i).getConhecidos().get(j).getNome(), this.pessoasPorCidade.get(i).getNome(), this.pessoasPorCidade.get(i).getConhecidos().get(j).getNome());
+             for (int j = 0; j <this.pessoasPorCidade.get(i).getVizinhos().size(); j++) {
+                 if (( grafoCidade.getEdge(this.pessoasPorCidade.get(i).getVizinhos().get(j).getNome() + " conhece " + this.pessoasPorCidade.get(i).getNome())) == null) {
+                	 grafoCidade.addEdge(this.pessoasPorCidade.get(i).getNome() + " conhece " + this.pessoasPorCidade.get(i).getVizinhos().get(j).getNome(), this.pessoasPorCidade.get(i).getNome(), this.pessoasPorCidade.get(i).getVizinhos().get(j).getNome());
                  }
              }
          }
@@ -297,8 +281,8 @@ public class RepositorioPessoa {
          for (Node node : grafoCidade) {
              node.addAttribute("ui.label", node.getId());
          }
-         ConnectedComponents cc = new ConnectedComponents();
-         cc.init(grafoCidade);
+         ConnectedComponents cc2 = new ConnectedComponents();
+         cc2.init(grafoCidade);
          grafoCidade.display();
     }
 

@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -57,6 +58,13 @@ public class ControladorTelas {
 
     @FXML
     private TableColumn<Pessoa, String> participantes;
+    
+    @FXML
+    private Label nCC;
+    @FXML
+    private Button verGrafo;
+
+
 
     RepositorioPessoa rep = RepositorioPessoa.getInstance();
     ConnectComponents c = new ConnectComponents();
@@ -125,10 +133,16 @@ public class ControladorTelas {
     }
 
     @FXML
-    public void CC() {
-        //chamar nova tela para imprimir a quantidade de componentes conectados e ao apertar um botao mostrar o grafo
-        System.out.println(c.retornarCC());
-        rep.acao();
+    public void CC(ActionEvent event) throws IOException {
+    	 Parent janela = FXMLLoader.load(getClass().getResource("/telas/fxmls/Tela3.fxml"));
+         Scene cena = new Scene(janela);
+         Stage stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
+         stage.setScene(cena);
+         stage.show();
+    }
+    @FXML
+    public void ChamarGrafoCC() {
+    	rep.acao();
     }
 
     @FXML
@@ -192,6 +206,8 @@ public class ControladorTelas {
         assert sair != null : "fx:id=\"sair\" was not injected: check your FXML file 'NovoParticipante2.fxml'.";
         assert tabelapart != null : "fx:id=\"tabelapart\" was not injected: check your FXML file 'NovoParticipante2.fxml'.";
         assert participantes != null : "fx:id=\"participantes\" was not injected: check your FXML file 'NovoParticipante2.fxml'.";
+        assert nCC != null : "fx:id=\"nCC\" was not injected: check your FXML file 'Tela3.fxml'.";
+        assert verGrafo != null : "fx:id=\"verGrafo\" was not injected: check your FXML file 'Tela3.fxml'.";
         try {
             iniciartabela1();
         } catch (NullPointerException e) {
@@ -202,6 +218,14 @@ public class ControladorTelas {
         } catch (NullPointerException e) {
             //e.printStackTrace();
         }
+        try {
+        	String f = ""+c.retornarCC();
+        	nCC.setText(f);
+        } catch (NullPointerException e) {
+            //e.printStackTrace();
+        }
+       
+    	
 
     }
 }

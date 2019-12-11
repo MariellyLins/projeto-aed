@@ -6,6 +6,7 @@ public class Pessoa {
 	private String nome = new String();
 	private String cidade= new String();
 	private ArrayList<Pessoa> conhecidos = new ArrayList<Pessoa>();
+	private ArrayList<Pessoa> vizinhos = new ArrayList<Pessoa>();
 	private boolean conectado = false;
 	
 	public String getNome() {
@@ -30,6 +31,13 @@ public class Pessoa {
 
 	public void setConhecidos(ArrayList<Pessoa> conhecidos) {
 		this.conhecidos = conhecidos;
+	}
+	public ArrayList<Pessoa> getVizinhos() {
+		return vizinhos;
+	}
+
+	public void setVizinhos(ArrayList<Pessoa> vizinhos) {
+		this.vizinhos = vizinhos;
 	}
 	public void addConhecidos(Pessoa p) {
 		this.conhecidos.add(p);
