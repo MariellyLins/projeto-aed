@@ -164,9 +164,8 @@ public class RepositorioPessoa {
 		Pessoa Lucas = new Pessoa("Lucas","Boa Viagem");
 		Pessoa Fernando = new Pessoa("Luiz Fernando","Camaragibe");
 		Pessoa Falcão = new Pessoa("Luiz F. Falcão","Recife");
-		Pessoa Fal = new Pessoa("Luiz","Recife");
 		
-		//rep.cadastrar(Fal);
+		
 		rep.cadastrar(Falcão);
 		rep.cadastrar(Fernando);
 		rep.cadastrar(Fernanda);
@@ -191,9 +190,7 @@ public class RepositorioPessoa {
         rep.addConhecidos(Fernando, Samuel);
         rep.addConhecidos(Samuel, Falcão);
         rep.addConhecidos(Jose, Samuel);
-        //rep.addConhecidos(Jose, Fal);
-        //rep.addConhecidos(Matheus, Samuel);
-       // rep.addConhecidos(Carlos, Samuel);
+       
         
         //2
 		rep.addConhecidos(MariaLucia,Matheus);

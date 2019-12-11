@@ -6,7 +6,7 @@ public class Pessoa {
 	private String nome = new String();
 	private String cidade= new String();
 	private ArrayList<Pessoa> conhecidos = new ArrayList<Pessoa>();
-	private boolean conectado;
+	private boolean conectado = false;
 	
 	public String getNome() {
 		return nome;
