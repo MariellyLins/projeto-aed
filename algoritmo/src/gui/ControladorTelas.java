@@ -134,7 +134,7 @@ public class ControladorTelas {
     @FXML
     public void Clique() {
 
-        rep.acao();
+        rep.acaoClique();
     }
 
     @FXML

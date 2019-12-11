@@ -11,8 +11,10 @@ public class RepositorioPessoa {
 	private ArrayList<Pessoa> pessoas  = new ArrayList<Pessoa>(); 
 	public static RepositorioPessoa instance;
 	private ArrayList<String> cidades = new ArrayList<String>();
-	private ArrayList<Pessoa> cid = new ArrayList();
+	private ArrayList<Pessoa> cid = new ArrayList<>();
+	private ArrayList<Pessoa> pessoasPorCidade = new ArrayList<>();
 	 public Graph grafo = new SingleGraph("Teste");
+	 public Graph  grafoCidade = new SingleGraph("Teste2");
 	
 
 	public static RepositorioPessoa getInstance(){
@@ -54,6 +56,7 @@ public class RepositorioPessoa {
 		ArrayList<Pessoa> sete = buscarPorCidade(cidades.get(7));
 		ArrayList<Pessoa> oito = buscarPorCidade(cidades.get(8));
 		ArrayList<Pessoa> zero = buscarPorCidade(cidades.get(0));
+		
 		
 		cid.add(um.get(0));
 		cid.add(dois.get(0));
@@ -219,6 +222,39 @@ public class RepositorioPessoa {
 	    ganbiarra();
 	}
 	
+	public void iniciarPClique() {
+		this.pessoasPorCidade.addAll(pessoas);
+		for(int i=0;i<pessoasPorCidade.size();i++) {
+			for(int j=0;j<cidades.size();j++) {
+				if(pessoasPorCidade.get(i).getCidade().equalsIgnoreCase(cidades.get(j))) {
+					 pessoasPorCidade.get(i).setConhecidos(buscarPorCidade(cidades.get(j)));
+				     pessoasPorCidade.get(i).getConhecidos().remove(pessoasPorCidade.get(i));
+				}
+				    
+			}
+		}
+		
+		this.pessoasPorCidade.get(3).addConhecidos(this.pessoasPorCidade.get(5));
+		this.pessoasPorCidade.get(5).addConhecidos(this.pessoasPorCidade.get(3));
+		this.pessoasPorCidade.get(11).addConhecidos(this.pessoasPorCidade.get(5));
+		this.pessoasPorCidade.get(5).addConhecidos(this.pessoasPorCidade.get(11));
+		this.pessoasPorCidade.get(6).addConhecidos(this.pessoasPorCidade.get(2));
+		this.pessoasPorCidade.get(2).addConhecidos(this.pessoasPorCidade.get(6));
+		this.pessoasPorCidade.get(2).addConhecidos(this.pessoasPorCidade.get(1));
+		this.pessoasPorCidade.get(1).addConhecidos(this.pessoasPorCidade.get(2));
+		this.pessoasPorCidade.get(8).addConhecidos(this.pessoasPorCidade.get(10));
+		this.pessoasPorCidade.get(10).addConhecidos(this.pessoasPorCidade.get(8));
+		this.pessoasPorCidade.get(15).addConhecidos(this.pessoasPorCidade.get(10));
+		this.pessoasPorCidade.get(10).addConhecidos(this.pessoasPorCidade.get(15));
+		this.pessoasPorCidade.get(15).addConhecidos(this.pessoasPorCidade.get(11));
+		this.pessoasPorCidade.get(11).addConhecidos(this.pessoasPorCidade.get(15));
+		this.pessoasPorCidade.get(15).addConhecidos(this.pessoasPorCidade.get(4));
+		this.pessoasPorCidade.get(4).addConhecidos(this.pessoasPorCidade.get(15));
+		
+		
+		
+	}
+	
     public void acao() {
         RepositorioPessoa rep = RepositorioPessoa.getInstance();
         for (int i = 0; i < rep.getPessoas().size(); i++) {
@@ -234,20 +270,36 @@ public class RepositorioPessoa {
         }
 
         System.setProperty("org.graphstream.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
-        grafo.addAttribute("ui.stylesheet", "graph { fill-color: green; }");
-        grafo.addAttribute("ui.stylesheet", "node {fill-color: red;size: 10px, 10px;fill-mode: plain;stroke-mode: plain;stroke-color: black; }");
+        //grafo.addAttribute("ui.stylesheet", "graph { fill-color: gray;}, node {fill-color: red;size: 10px, 10px;fill-mode: plain;stroke-mode: plain;stroke-color: black; }");
         for (Node node : grafo) {
             node.addAttribute("ui.label", node.getId());
         }
         ConnectedComponents cc = new ConnectedComponents();
         cc.init(grafo);
-
-        //System.out.printf("%d connected component(s) no grafo.%n",cc.getConnectedComponentsCount());
         grafo.display();
 
-//	    ArrayList<Pessoa> moramEmInventado = rep.buscarPorCidade("Inventado");
-//	    ArrayList<Pessoa> moramEmRecife = rep.buscarPorCidade("Recife");
-//	    ArrayList<Pessoa> moramEmVitoria = rep.buscarPorCidade("Vitoria");
+    }
+    
+    public void acaoClique() {
+         for (int i = 0; i < this.pessoasPorCidade.size(); i++) {
+        	 grafoCidade.addNode(this.pessoasPorCidade.get(i).getNome());
+         }
+         for (int i = 0; i < this.pessoasPorCidade.size(); i++) {
+             for (int j = 0; j <this.pessoasPorCidade.get(i).getConhecidos().size(); j++) {
+                 if (( grafoCidade.getEdge(this.pessoasPorCidade.get(i).getConhecidos().get(j).getNome() + " conhece " + this.pessoasPorCidade.get(i).getNome())) == null) {
+                	 grafoCidade.addEdge(this.pessoasPorCidade.get(i).getNome() + " conhece " + this.pessoasPorCidade.get(i).getConhecidos().get(j).getNome(), this.pessoasPorCidade.get(i).getNome(), this.pessoasPorCidade.get(i).getConhecidos().get(j).getNome());
+                 }
+             }
+         }
+
+         System.setProperty("org.graphstream.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
+        // grafoCidade.addAttribute("ui.stylesheet","graph { fill-color: green;}, node {fill-color: red;size: 10px, 10px;fill-mode: plain;stroke-mode: plain;stroke-color: black; }");
+         for (Node node : grafoCidade) {
+             node.addAttribute("ui.label", node.getId());
+         }
+         ConnectedComponents cc = new ConnectedComponents();
+         cc.init(grafoCidade);
+         grafoCidade.display();
     }
 
 }
