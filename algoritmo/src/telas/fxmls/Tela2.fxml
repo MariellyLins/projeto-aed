@@ -9,74 +9,74 @@
 
 <AnchorPane prefHeight="486.0" prefWidth="563.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ControladorTelas">
    <children>
-      <ImageView fitHeight="486.0" fitWidth="563.0">
+      <ImageView fitHeight="486.0" fitWidth="563.0" opacity="0.8">
          <image>
             <Image url="@../../imagens/97039341_gettyimages-817426712.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="21.0" layoutY="43.0" text="Pesquisa da UFRPE sobre Discreta-Vírus" textAlignment="CENTER" textFill="#ff2c2c">
+      <Label layoutX="16.0" layoutY="41.0" text="Pesquisa da UFRPE sobre Discreta-Vírus" textAlignment="CENTER" textFill="#ff2c2c">
          <font>
             <Font name="Georgia Bold Italic" size="25.0" />
          </font>
       </Label>
-      <Button fx:id="Continuar" blendMode="SRC_ATOP" layoutX="51.0" layoutY="408.0" mnemonicParsing="false" onAction="#CC" prefHeight="34.0" prefWidth="178.0" text="Nº de Vacinas necessárias" textFill="#577464" />
-      <Button fx:id="Adicionar" blendMode="SRC_ATOP" layoutX="300.0" layoutY="408.0" mnemonicParsing="false" onAction="#Clique" prefHeight="34.0" prefWidth="163.0" text="Cidade mais afetada" textFill="#577464" />
-      <Label layoutX="48.0" layoutY="85.0" text="Para combater a superbactéria PM a UFRPE juntamente" textAlignment="CENTER" textFill="#ff2c2c">
+      <Button fx:id="Continuar" blendMode="SRC_ATOP" layoutX="92.0" layoutY="408.0" mnemonicParsing="false" onAction="#CC" prefHeight="34.0" prefWidth="178.0" text="Nº de Vacinas necessárias" textFill="#577464" />
+      <Button fx:id="Adicionar" blendMode="SRC_ATOP" layoutX="306.0" layoutY="408.0" mnemonicParsing="false" onAction="#Clique" prefHeight="34.0" prefWidth="163.0" text="Cidade mais afetada" textFill="#577464" />
+      <Label layoutX="75.0" layoutY="100.0" text="Para combater a superbactéria PM, a UFRPE juntamente" textAlignment="CENTER">
          <font>
-            <Font name="Georgia Bold Italic" size="16.0" />
+            <Font name="Arial Narrow Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="51.0" layoutY="124.0" text="com base no Discreta-Vírus capaz de destruir as PM" textAlignment="CENTER" textFill="#ff2c2c">
+      <Label layoutX="90.0" layoutY="134.0" text="com base no Discreta-Vírus capaz de destruir as PM" textAlignment="CENTER">
          <font>
-            <Font name="Georgia Bold Italic" size="17.0" />
+            <Font name="Arial Narrow Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="42.0" layoutY="104.0" text="com o Ministério da Saúde desenvolveram uma vacina" textAlignment="CENTER" textFill="#ff2c2c">
+      <Label layoutX="78.0" layoutY="118.0" text="com o Ministério da Saúde desenvolveram uma vacina" textAlignment="CENTER">
          <font>
-            <Font name="Georgia Bold Italic" size="17.0" />
+            <Font name="Arial Narrow Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="29.0" layoutY="156.0" text="Foi feito uma analise pensando em diminuir os gastos da" textAlignment="CENTER" textFill="#ff2c2c">
+      <Label layoutX="73.0" layoutY="171.0" text="Foi feito uma analise pensando em diminuir os gastos da" textAlignment="CENTER">
          <font>
-            <Font name="Georgia Bold Italic" size="17.0" />
+            <Font name="Arial Narrow Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="29.0" layoutY="176.0" text="pesquisa mencionada, e ainda sim beneficiar todos os " textAlignment="CENTER" textFill="#ff2c2c">
+      <Label layoutX="73.0" layoutY="188.0" text="pesquisa mencionada, e ainda assim beneficiar todos os " textAlignment="CENTER">
          <font>
-            <Font name="Georgia Bold Italic" size="17.0" />
+            <Font name="Arial Narrow Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="29.0" layoutY="196.0" text="participantes, todos infectados com a superbactéria" textAlignment="CENTER" textFill="#ff2c2c">
+      <Label layoutX="61.0" layoutY="205.0" text="participantes, ou seja, todos infectados com a superbactéria" textAlignment="CENTER">
          <font>
-            <Font name="Georgia Bold Italic" size="17.0" />
+            <Font name="Arial Narrow Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="29.0" layoutY="233.0" text="Apartir dos dados coletados os estudantes de Ciência da" textAlignment="CENTER" textFill="#ff2c2c">
+      <Label layoutX="72.0" layoutY="240.0" text="A partir dos dados coletados, estudantes de Ciência da" textAlignment="CENTER">
          <font>
-            <Font name="Georgia Bold Italic" size="17.0" />
+            <Font name="Arial Narrow Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="27.0" layoutY="253.0" text="Computação montaram dois grafos e usando algoritmos" textAlignment="CENTER" textFill="#ff2c2c">
+      <Label layoutX="74.0" layoutY="258.0" text="Computação montaram dois grafos e usando algoritmos" textAlignment="CENTER">
          <font>
-            <Font name="Georgia Bold Italic" size="17.0" />
+            <Font name="Arial Narrow Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="17.0" layoutY="273.0" text="de Connect Componets foram capazes de alcançar o objetivo" textAlignment="CENTER" textFill="#ff2c2c">
+      <Label layoutX="58.0" layoutY="277.0" text="de Connect Componets foram capazes de alcançar o objetivo" textAlignment="CENTER">
          <font>
-            <Font name="Georgia Bold Italic" size="17.0" />
+            <Font name="Arial Narrow Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="21.0" layoutY="302.0" text="Usando o algoritmo de clique eles também foram capazes " textAlignment="CENTER" textFill="#ff2c2c">
+      <Label layoutX="68.0" layoutY="315.0" text="Usando o algoritmo de clique eles também foram capazes " textAlignment="CENTER">
          <font>
-            <Font name="Georgia Bold Italic" size="17.0" />
+            <Font name="Arial Narrow Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="32.0" layoutY="322.0" text="de retornar a cidade mais afetada pela bactéria PM" textAlignment="CENTER" textFill="#ff2c2c">
+      <Label layoutX="92.0" layoutY="334.0" text="de retornar a cidade mais afetada pela bactéria PM" textAlignment="CENTER">
          <font>
-            <Font name="Georgia Bold Italic" size="17.0" />
+            <Font name="Arial Narrow Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="73.0" layoutY="359.0" text="Clique nos botões a baixo para ver o resultado" textAlignment="CENTER" textFill="#ff2c2c">
+      <Label layoutX="74.0" layoutY="374.0" text="Clique nos botões abaixo para ver o resultado" textAlignment="CENTER" textFill="#ff2c2c">
          <font>
             <Font name="Georgia Bold Italic" size="17.0" />
          </font>

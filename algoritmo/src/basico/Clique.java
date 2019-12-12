@@ -71,12 +71,14 @@ public class Clique {
        }
        return cliques;
   }
+	 
 
   public ArrayList<String> MaiorIndice(){
        ArrayList<ArrayList<Pessoa>> cliques = Montando();
        ArrayList<String> cidadesMaisAfetadas = new ArrayList<String>();
        int maior = -1;
        int posi=0;
+       
        for(int i=0;i<cliques.size();i++){
           if(cliques.get(i).size()>maior){
               maior = cliques.get(i).size();
@@ -92,6 +94,8 @@ public class Clique {
                cidadesMaisAfetadas.add(cliques.get(i).get(0).getCidade());
           }
        }
-      return cidadesMaisAfetadas;
+       
+       return cidadesMaisAfetadas;
   }
+  
 }

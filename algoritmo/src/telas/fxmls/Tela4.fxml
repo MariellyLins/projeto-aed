@@ -14,20 +14,20 @@
             <Image url="@../../imagens/97039341_gettyimages-817426712.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="verGrafoClique" blendMode="SRC_ATOP" layoutX="181.0" layoutY="367.0" mnemonicParsing="false" onAction="#ChamarGrafoClique" prefHeight="34.0" prefWidth="178.0" text="Ver o grafo" textFill="#577464" />
-      <Label layoutX="86.0" layoutY="69.0" prefHeight="35.0" prefWidth="455.0" text="A cidade com maior número" textFill="#2cac48">
+      <Button fx:id="verGrafoClique" blendMode="SRC_ATOP" layoutX="181.0" layoutY="406.0" mnemonicParsing="false" onAction="#ChamarGrafoClique" prefHeight="34.0" prefWidth="178.0" text="Ver o grafo" textFill="#577464" />
+      <Label layoutX="52.0" layoutY="69.0" prefHeight="35.0" prefWidth="455.0" text="A cidade com maior número" textFill="#2cac48">
          <font>
             <Font name="Georgia Bold Italic" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="144.0" layoutY="104.0" prefHeight="35.0" prefWidth="334.0" text="de casos da doença" textFill="#2cac48">
+      <Label layoutX="136.0" layoutY="101.0" prefHeight="35.0" prefWidth="334.0" text="de casos da doença" textFill="#2cac48">
          <font>
             <Font name="Georgia Bold Italic" size="30.0" />
          </font>
       </Label>
-      <Label fx:id="nClique" layoutX="181.0" layoutY="182.0" text="Recife" textFill="#2cac48">
+      <Label fx:id="nClique" layoutX="52.0" layoutY="220.0" prefHeight="46.0" prefWidth="455.0" text="Recife" textFill="#2cac48">
          <font>
-            <Font name="Georgia Bold Italic" size="63.0" />
+            <Font name="Georgia Bold Italic" size="40.0" />
          </font>
       </Label>
    </children>

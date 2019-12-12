@@ -14,17 +14,17 @@
             <Image url="@../../imagens/bacteriofago.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="178.0" layoutY="37.0" prefHeight="55.0" prefWidth="326.0" text="Bem-vindo(a)" textFill="#69eda6">
+      <Label layoutX="143.0" layoutY="45.0" prefHeight="55.0" prefWidth="290.0" text="Bem-vindo(a)" textFill="#69eda6">
          <font>
             <Font name="Georgia Bold Italic" size="39.0" />
          </font>
       </Label>
-      <Label layoutX="107.0" layoutY="100.0" text="ao Algoritm's projetc" textFill="#69eda6">
+      <Label layoutX="85.0" layoutY="90.0" text="ao Algoritmos' Project" textFill="#69eda6">
          <font>
             <Font name="Georgia Bold Italic" size="36.0" />
          </font>
       </Label>
-      <Label layoutX="29.0" layoutY="204.0" text="Clique em Continuar para ir para o projeto ou Adicionar para adicionar participante" textAlignment="CENTER" textFill="#9effca">
+      <Label layoutX="24.0" layoutY="234.0" text="Clique em Continuar para ir para o projeto ou Adicionar para adicionar participante" textAlignment="CENTER" textFill="#9effca">
          <font>
             <Font name="Comic Sans MS Bold Italic" size="13.0" />
          </font>
