@@ -37,4 +37,44 @@ public class Clique {
 		}
 		return closed;
 	}
+	 public ArrayList<ArrayList<Pessoa>> Montando(){
+       ArrayList<ArrayList<Pessoa>> cliques = new ArrayList<ArrayList<Pessoa>>();
+       int w=0;
+       for(int i=0;i<rep.getPessoasPorCidade().size();i++){
+         Pessoa temp = rep.getPessoasPorCidade().get(i);
+           cliques.add(new ArrayList<Pessoa>());
+            for(Pessoa p: temp.getVizinhos){
+                for(Pessoa d: p.getVizinhos()){
+                     if(temp.getVizinhos.contains(d)){
+                         cliques.get(w).add(d);
+                     }
+                }
+                cliques.get(w).add(p);
+                cliques.get(w).add(temp);
+                w++;
+            }
+            
+       }
+       return cliques;
+  }
+
+  public ArrayList<String> MaiorIndice(){
+       ArrayList<ArrayList<Pessoa>> cliques = Montando();
+       ArrayList<String> cidadesMaisAfetadas = new ArrayList<String>();
+       int maior = -1;
+       int posi;
+       for(int i=0;i<cliques.size();i++){
+          if(cliques.get(i).size()>maior){
+              maior = cliques.get(i).size();
+              posi = i;
+          }
+       }
+       cidadesMaisAfetadas.add(cliques.get(posi).get(0).getCidade());
+       for(int i=0;i<cliques.size();i++){
+          if(cliques.get(i).size()== maior){
+               cidadesMaisAfetadas.add(cliques.get(i).get(0).getCidade());
+          }
+       }
+      return cidadesMaisAfetadas;
+  }
 }
