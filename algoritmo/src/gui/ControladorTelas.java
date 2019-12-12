@@ -150,7 +150,7 @@ public class ControladorTelas {
  
     }
     @FXML
-    public void ChamarGrafoCC() {
+    public void ChamarGrafoCC() throws InterruptedException {
     	rep.acao();
     }
     @FXML

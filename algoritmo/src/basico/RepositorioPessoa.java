@@ -2,6 +2,7 @@ package basico;
 
 import java.util.ArrayList;
 import org.graphstream.algorithm.ConnectedComponents;
+import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.SingleGraph;
@@ -78,8 +79,11 @@ public class RepositorioPessoa {
 	}
 
 	public void addConhecidos(Pessoa p,Pessoa p1) {
-		p.addConhecidos(p1);
-		p1.addConhecidos(p);
+		if(!p.getConhecidos().contains(p1)) {
+			p.addConhecidos(p1);
+			p1.addConhecidos(p);
+		}
+		
 	}
 	
 	public ArrayList<Pessoa> getPessoas() {
@@ -190,6 +194,7 @@ public class RepositorioPessoa {
        
        
        
+       
         
         //2
 		rep.addConhecidos(MariaLucia,Matheus);
@@ -251,7 +256,7 @@ public class RepositorioPessoa {
 		
 	}
 	
-    public void acao() {
+    public void acao() throws InterruptedException {
         RepositorioPessoa rep = RepositorioPessoa.getInstance();
         for (int i = 0; i < rep.getPessoas().size(); i++) {
             grafo.addNode(rep.buscarInt(i).getNome());
@@ -264,15 +269,34 @@ public class RepositorioPessoa {
                 }
             }
         }
-
-        System.setProperty("org.graphstream.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
-        //grafo.addAttribute("ui.stylesheet", "graph { fill-color: gray;}, node {fill-color: red;size: 10px, 10px;fill-mode: plain;stroke-mode: plain;stroke-color: black; }");
-        for (Node node : grafo) {
-            node.addAttribute("ui.label", node.getId());
+        //evita erros quando tentamos buscar algo inexistente:
+        grafo.setStrict(false);
+        //(tem exemplos no site graphStream de estilos de edição)
+        //melhorar qualidade do grafo:
+        grafo.addAttribute("ui.quality");
+        grafo.addAttribute("ui.antialias");
+        //importar imagem de fundo:
+        grafo.addAttribute("ui.stylesheet", "graph { fill-mode: image-scaled-ratio-max; fill-image: url('imagens/vacina.jpg'); }");
+        
+        //determinar atributos do no
+        for (Node node : grafo.getNodeSet()) {
+        	node.addAttribute("ui.label", node.getId());
+        	grafo.getNode(node.getId()).setAttribute("ui.style", " size: 30px;fill-mode: image-scaled-ratio-min; fill-image: url('imagens/bac.png');");
         }
+        //atributos das arestas 
+        for(Edge e: grafo.getEdgeSet()) {
+            e.setAttribute("ui.style", "shape: blob; size: 3px; arrow-shape: none;fill-color: #007d8b;");
+        }
+        
         ConnectedComponents cc = new ConnectedComponents();
         cc.init(grafo);
         grafo.display();
+        /*for(int i = 0; i < 30; i++) {
+        	//exemplo de manipulação de grafo:
+        	grafo.removeEdge("Marielly conhece Juliane");
+          //para esperar tempo antes de fazer ação:
+            Thread.sleep(1000);
+        }*/
 
     }
     
@@ -287,11 +311,24 @@ public class RepositorioPessoa {
                  }
              }
          }
-
-         System.setProperty("org.graphstream.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
-        // grafoCidade.addAttribute("ui.stylesheet","graph { fill-color: green;}, node {fill-color: red;size: 10px, 10px;fill-mode: plain;stroke-mode: plain;stroke-color: black; }");
-         for (Node node : grafoCidade) {
-             node.addAttribute("ui.label", node.getId());
+  
+       //evita erros quando tentamos buscar algo inexistente:
+         grafoCidade.setStrict(false);
+         //(tem exemplos no site graphStream de estilos de edição)
+         //melhorar qualidade do grafo:
+         grafoCidade.addAttribute("ui.quality");
+         grafoCidade.addAttribute("ui.antialias");
+         //importar imagem de fundo:
+         grafoCidade.addAttribute("ui.stylesheet", "graph { fill-mode: image-scaled-ratio-max; fill-image: url('imagens/População_pernambuco.png'); }");
+         
+         //determinar atributos do no
+         for (Node node :grafoCidade.getNodeSet()) {
+         	node.addAttribute("ui.label", node.getId());
+         	grafoCidade.getNode(node.getId()).setAttribute("ui.style", " size: 30px;fill-mode: image-scaled-ratio-min; fill-image: url('imagens/bac.png');");
+         }
+         //atributos das arestas 
+         for(Edge e: grafoCidade.getEdgeSet()) {
+             e.setAttribute("ui.style", "shape: blob; size: 3px; arrow-shape: none;fill-color: #007d8b;");
          }
          ConnectedComponents cc2 = new ConnectedComponents();
          cc2.init(grafoCidade);

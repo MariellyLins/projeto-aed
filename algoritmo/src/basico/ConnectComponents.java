@@ -25,8 +25,6 @@ public class ConnectComponents {
 		for(int i=0;i<algo.size();i++) {
 			Pessoa t = rep.getPessoas().get(i);
 			System.out.println("Vez de "+t.getNome()+" seu valor é "+algo.get(t));
-			
-				System.out.println("Não esta conectado");
 				for(int j=0; j< rep.getPessoas().get(i).getConhecidos().size();j++) {
 					if(rep.getPessoas().get(i).getConhecidos().get(j).isConectado()) {
 						mudados.add(rep.getPessoas().get(i).getConhecidos().get(j));
@@ -55,7 +53,7 @@ public class ConnectComponents {
 				Pessoa g = t.getConhecidos().get(j);
 				System.out.println("valou de "+g.getNome()+" era "+algo.get(g));
 				 algo.replace(g, algo.get(g), algo.get(t));
-				 System.out.println("valou de "+g.getNome()+" mudou para "+algo.get(g));
+				 System.out.println("valor de "+g.getNome()+" mudou para "+algo.get(g));
 				 g.setConectado(true);
 				 System.out.println(g.getNome()+" conectado "+g.isConectado());		
 			}
@@ -73,15 +71,23 @@ public class ConnectComponents {
 
 	
     	if(erro.size()>1) {
-    		for(Object value: algo.values()) {
+    		for(int i=0; i< rep.getPessoas().size();i++) {
+				Pessoa g = rep.getPessoas().get(i);
+				if(erro.contains((Integer)algo.get(g))) {
+					 System.out.println("Valor é "+ algo.get(g));
+					 algo.replace(g, algo.get(g), algo.get(t));
+					 System.out.println("valor mudou para "+algo.get(g));
+				}
+    		}
+    		/*for(Object value: algo.values()) {
 	    		  if(erro.contains((Integer)value)) {
 	    			  System.out.println("Valor é "+ value);
 	    			  value = algo.get(t);
-	    			  System.out.println("valou mudou para "+algo.get(t));
+	    			  System.out.println("valor mudou para "+value);
 	  	    		 
 	    		  }
 	    			 
-	    	}
+	    	}*/
     	}
 	    	
     	

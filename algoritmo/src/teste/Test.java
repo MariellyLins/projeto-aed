@@ -14,6 +14,7 @@ public class Test extends Application {
 	 
 	    
 	public void start(Stage primaryStage) {
+		System.setProperty("org.graphstream.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
 		rep.iniciarPessoas();
 		rep.iniciarPClique();
 		try {
