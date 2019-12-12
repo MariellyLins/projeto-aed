@@ -280,7 +280,7 @@ public class RepositorioPessoa {
         //determinar atributos do no
         for (Node node : grafo.getNodeSet()) {
         	node.addAttribute("ui.label", node.getId());
-        	grafo.getNode(node.getId()).setAttribute("ui.style", " size: 30px;fill-mode: image-scaled-ratio-min; fill-image: url('imagens/bac.png');");
+        	grafo.getNode(node.getId()).setAttribute("ui.style", "text-alignment: at-right; text-padding: 3px, 2px; text-background-mode: rounded-box; text-background-color: #A7CC; text-color: white; text-style: bold-italic; text-color: green; text-offset: 5px, 0px; size: 30px;fill-mode: image-scaled-ratio-min; fill-image: url('imagens/bac.png');");
         }
         
         //atributos das arestas 
@@ -329,7 +329,7 @@ public class RepositorioPessoa {
          //determinar atributos do no
          for (Node node :grafoCidade.getNodeSet()) {
          	node.addAttribute("ui.label", node.getId());
-         	grafoCidade.getNode(node.getId()).setAttribute("ui.style", " size: 30px;fill-mode: image-scaled-ratio-min; fill-image: url('imagens/bac.png');");
+         	grafoCidade.getNode(node.getId()).setAttribute("ui.style", "text-alignment: at-right; text-padding: 3px, 2px; text-background-mode: rounded-box; text-background-color: #A7CC; text-color: white; text-style: bold-italic; text-color: green; text-offset: 5px, 0px;  size: 30px;fill-mode: image-scaled-ratio-min; fill-image: url('imagens/bac.png');");
          }
          
          //atributos das arestas 
