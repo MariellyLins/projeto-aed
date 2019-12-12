@@ -102,6 +102,9 @@ public class ControladorTelas {
         if (!((String) nome.getText()).isEmpty() && tabela.getSelectionModel().getSelectedItem() != null) {
             Pessoa p = new Pessoa((String) nome.getText(), tabela.getSelectionModel().getSelectedItem().getCidade());
             rep.cadastrar(p);
+            p.setVizinhos(rep.buscarPorCidade(p.getCidade()));
+            p.getVizinhos().remove(p);
+            rep.getPessoasPorCidade().add(p);
         } else if (tabela.getSelectionModel().getSelectedItem() != null) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.initOwner(dialogStage);
@@ -145,6 +148,7 @@ public class ControladorTelas {
          Stage stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
          stage.setScene(cena);
          stage.show();
+         System.out.println(c.retornarCC());
     }
     @FXML
     public void ChamarGrafoCC() {

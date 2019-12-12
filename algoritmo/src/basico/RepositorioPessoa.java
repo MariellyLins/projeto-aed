@@ -90,9 +90,17 @@ public class RepositorioPessoa {
 		this.pessoas = pessoas;
 	}
 
+	public ArrayList<Pessoa> getPessoasPorCidade() {
+		return pessoasPorCidade;
+	}
+
+	public void setPessoasPorCidade(ArrayList<Pessoa> pessoasPorCidade) {
+		this.pessoasPorCidade = pessoasPorCidade;
+	}
+
 	public void cadastrar(Pessoa p) {
 		if(!pessoas.contains(p))
-		pessoas.add(p);
+		  pessoas.add(p);
 	}
 	
 	public void remover(Pessoa p) {
