@@ -92,6 +92,17 @@ public class ControladorTelas {
             p.setVizinhos(rep.buscarPorCidade(p.getCidade()));
             p.getVizinhos().remove(p);
             rep.getPessoasPorCidade().add(p);
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("/telas/fxmls/NovoParticipante2.fxml"));
+                Scene cena = new Scene(root);
+                Stage stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
+                stage.setScene(cena);
+                stage.show();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+
+            }
         } else if (tabela.getSelectionModel().getSelectedItem() != null) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.initOwner(dialogStage);
@@ -107,17 +118,7 @@ public class ControladorTelas {
             alert.setContentText("A cidade do Participante nao pode ser vazia");
             alert.showAndWait();
         }
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/telas/fxmls/NovoParticipante2.fxml"));
-            Scene cena = new Scene(root);
-            Stage stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
-            stage.setScene(cena);
-            stage.show();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-
-        }
+        
     }
 
     @FXML
