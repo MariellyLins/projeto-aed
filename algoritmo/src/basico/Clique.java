@@ -1,5 +1,7 @@
 package basico;
 
+
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -46,14 +48,23 @@ public class Clique {
               cliques.add(new ArrayList<Pessoa>());
                 for(Pessoa d: p.getVizinhos()){
                      if(temp.getVizinhos().contains(d)){
-                         if(!cliques.get(w).contains(d))
-                          cliques.get(w).add(d);
+                       if(!cliques.get(w).contains(d)){
+                          if(temp.getCidade().equals(d.getCidade()))
+                             cliques.get(w).add(d);
+                       }
+                        
+                          
                      }
                 }
-                if(!cliques.get(w).contains(p))
-                cliques.get(w).add(p);
-                if(!cliques.get(w).contains(temp))
-                cliques.get(w).add(temp);
+                  if(!cliques.get(w).contains(p)){
+                     if(temp.getCidade().equals(p.getCidade()))
+                       cliques.get(w).add(p);
+                  }
+                
+                if(!cliques.get(w).contains(temp)){
+                    cliques.get(w).add(temp);
+                }
+              
                 w++;
             }
             
