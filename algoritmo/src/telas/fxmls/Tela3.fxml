@@ -14,20 +14,20 @@
             <Image url="@../../imagens/97039341_gettyimages-817426712.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="verGrafo" blendMode="SRC_ATOP" layoutX="181.0" layoutY="409.0" mnemonicParsing="false" onAction="#ChamarGrafoCC" prefHeight="34.0" prefWidth="178.0" text="Ver o grafo" textFill="#577464" />
-      <Label layoutX="98.0" layoutY="69.0" prefHeight="35.0" prefWidth="334.0" text="O número de vacinas" textFill="#2cac48">
+      <Button fx:id="verGrafo" blendMode="SRC_ATOP" layoutX="183.0" layoutY="338.0" mnemonicParsing="false" onAction="#ChamarGrafoCC" prefHeight="34.0" prefWidth="178.0" text="Ver o grafo" textFill="#171616" />
+      <Label layoutX="70.0" layoutY="110.0" prefHeight="35.0" prefWidth="424.0" text="O NÚMERO DE VACINAS" textFill="#570a0a">
          <font>
-            <Font name="Georgia Bold Italic" size="30.0" />
+            <Font name="Georgia Bold" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="154.0" layoutY="104.0" prefHeight="35.0" prefWidth="227.0" text="necessárias é" textFill="#2cac48">
+      <Label layoutX="134.0" layoutY="142.0" prefHeight="35.0" prefWidth="275.0" text="NECESSÁRIAS É" textFill="#570a0a">
          <font>
-            <Font name="Georgia Bold Italic" size="30.0" />
+            <Font name="Georgia Bold" size="30.0" />
          </font>
       </Label>
-      <Label fx:id="nCC" layoutX="246.0" layoutY="179.0" prefHeight="109.0" prefWidth="79.0" text="1" textFill="#2cac48">
+      <Label fx:id="nCC" layoutX="243.0" layoutY="177.0" prefHeight="109.0" prefWidth="79.0" text="1" textFill="#570a0a">
          <font>
-            <Font name="Georgia Bold Italic" size="96.0" />
+            <Font name="Georgia Bold" size="95.0" />
          </font>
       </Label>
    </children>

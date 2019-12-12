@@ -14,71 +14,76 @@
             <Image url="@../../imagens/97039341_gettyimages-817426712.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="16.0" layoutY="41.0" text="Pesquisa da UFRPE sobre Discreta-Vírus" textAlignment="CENTER" textFill="#ff2c2c">
+      <Label layoutX="67.0" layoutY="28.0" text="PESQUISA DA UFRPE SOBRE O" textAlignment="CENTER" textFill="#570a0a">
          <font>
             <Font name="Georgia Bold Italic" size="25.0" />
          </font>
       </Label>
-      <Button fx:id="Continuar" blendMode="SRC_ATOP" layoutX="92.0" layoutY="408.0" mnemonicParsing="false" onAction="#CC" prefHeight="34.0" prefWidth="178.0" text="Nº de Vacinas necessárias" textFill="#577464" />
-      <Button fx:id="Adicionar" blendMode="SRC_ATOP" layoutX="306.0" layoutY="408.0" mnemonicParsing="false" onAction="#Clique" prefHeight="34.0" prefWidth="163.0" text="Cidade mais afetada" textFill="#577464" />
-      <Label layoutX="75.0" layoutY="100.0" text="Para combater a superbactéria PM, a UFRPE juntamente" textAlignment="CENTER">
+      <Button fx:id="Continuar" blendMode="SRC_ATOP" layoutX="92.0" layoutY="408.0" mnemonicParsing="false" onAction="#CC" prefHeight="34.0" prefWidth="178.0" text="Nº de Vacinas necessárias" textFill="#171616" />
+      <Button fx:id="Adicionar" blendMode="SRC_ATOP" layoutX="306.0" layoutY="408.0" mnemonicParsing="false" onAction="#Clique" prefHeight="34.0" prefWidth="163.0" text="Cidade mais afetada" textFill="#171616" />
+      <Label layoutX="69.0" layoutY="99.0" text="Para combater a superbactéria PM, a UFRPE juntamente" textAlignment="CENTER" textFill="#171616">
          <font>
             <Font name="Arial Narrow Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="90.0" layoutY="134.0" text="com base no Discreta-Vírus capaz de destruir as PM" textAlignment="CENTER">
+      <Label layoutX="83.0" layoutY="134.0" text="com base no Discreta-Vírus capaz de destruir as PM" textAlignment="CENTER" textFill="#171616">
          <font>
             <Font name="Arial Narrow Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="78.0" layoutY="118.0" text="com o Ministério da Saúde desenvolveram uma vacina" textAlignment="CENTER">
+      <Label layoutX="75.0" layoutY="117.0" text="com o Ministério da Saúde desenvolveram uma vacina" textAlignment="CENTER" textFill="#171616">
          <font>
             <Font name="Arial Narrow Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="73.0" layoutY="171.0" text="Foi feito uma analise pensando em diminuir os gastos da" textAlignment="CENTER">
+      <Label layoutX="72.0" layoutY="171.0" text="Foi feito uma análise pensando em diminuir os gastos da" textAlignment="CENTER" textFill="#171616">
          <font>
             <Font name="Arial Narrow Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="73.0" layoutY="188.0" text="pesquisa mencionada, e ainda assim beneficiar todos os " textAlignment="CENTER">
+      <Label layoutX="73.0" layoutY="188.0" text="pesquisa mencionada, e ainda assim beneficiar todos os " textAlignment="CENTER" textFill="#171616">
          <font>
             <Font name="Arial Narrow Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="61.0" layoutY="205.0" text="participantes, ou seja, todos infectados com a superbactéria" textAlignment="CENTER">
+      <Label layoutX="61.0" layoutY="205.0" text="participantes, ou seja, todos infectados com a superbactéria" textAlignment="CENTER" textFill="#171616">
          <font>
             <Font name="Arial Narrow Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="72.0" layoutY="240.0" text="A partir dos dados coletados, estudantes de Ciência da" textAlignment="CENTER">
+      <Label layoutX="76.0" layoutY="241.0" text="A partir dos dados coletados, estudantes de Ciência da" textAlignment="CENTER" textFill="#171616">
          <font>
             <Font name="Arial Narrow Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="74.0" layoutY="258.0" text="Computação montaram dois grafos e usando algoritmos" textAlignment="CENTER">
+      <Label layoutX="74.0" layoutY="258.0" text="Computação montaram dois grafos e usando algoritmos" textAlignment="CENTER" textFill="#171616">
          <font>
             <Font name="Arial Narrow Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="58.0" layoutY="277.0" text="de Connect Componets foram capazes de alcançar o objetivo" textAlignment="CENTER">
+      <Label layoutX="46.0" layoutY="276.0" text="de Connected Components foram capazes de alcançar o objetivo" textAlignment="CENTER" textFill="#171616">
          <font>
             <Font name="Arial Narrow Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="68.0" layoutY="315.0" text="Usando o algoritmo de clique eles também foram capazes " textAlignment="CENTER">
+      <Label layoutX="68.0" layoutY="315.0" text="Usando o algoritmo de clique eles também foram capazes " textAlignment="CENTER" textFill="#171616">
          <font>
             <Font name="Arial Narrow Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="92.0" layoutY="334.0" text="de retornar a cidade mais afetada pela bactéria PM" textAlignment="CENTER">
+      <Label layoutX="92.0" layoutY="334.0" text="de retornar a cidade mais afetada pela bactéria PM" textAlignment="CENTER" textFill="#171616">
          <font>
             <Font name="Arial Narrow Bold Italic" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="74.0" layoutY="374.0" text="Clique nos botões abaixo para ver o resultado" textAlignment="CENTER" textFill="#ff2c2c">
+      <Label layoutX="25.0" layoutY="374.0" text="CLIQUE NOS BOTÕES ABAIXO PARA VER O RESULTADO" textAlignment="CENTER" textFill="#570a0a">
          <font>
             <Font name="Georgia Bold Italic" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="150.0" layoutY="51.0" text="DISCRETA VÍRUS" textAlignment="CENTER" textFill="#570a0a">
+         <font>
+            <Font name="Georgia Bold Italic" size="25.0" />
          </font>
       </Label>
    </children>

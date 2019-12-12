@@ -14,22 +14,27 @@
             <Image url="@../../imagens/bacteriofago.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="143.0" layoutY="45.0" prefHeight="55.0" prefWidth="290.0" text="Bem-vindo(a)" textFill="#69eda6">
+      <Label layoutX="122.0" layoutY="36.0" prefHeight="55.0" prefWidth="332.0" text="BEM VINDO(A)" textFill="WHITE">
          <font>
-            <Font name="Georgia Bold Italic" size="39.0" />
+            <Font name="Georgia Bold" size="40.0" />
          </font>
       </Label>
-      <Label layoutX="85.0" layoutY="90.0" text="ao Algoritmos' Project" textFill="#69eda6">
+      <Label layoutX="31.0" layoutY="263.0" text="Clique em CONTINUAR para ir para o projeto ou ADICIONAR para adicionar participante" textAlignment="CENTER" textFill="#ffed76">
          <font>
-            <Font name="Georgia Bold Italic" size="36.0" />
+            <Font name="Arial Narrow Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="234.0" text="Clique em Continuar para ir para o projeto ou Adicionar para adicionar participante" textAlignment="CENTER" textFill="#9effca">
+      <Button fx:id="Continuar" blendMode="HARD_LIGHT" layoutX="134.0" layoutY="293.0" mnemonicParsing="false" onAction="#Continuar" prefHeight="34.0" prefWidth="100.0" text="Continuar" textFill="#171616" />
+      <Button fx:id="Adicionar" blendMode="HARD_LIGHT" layoutX="354.0" layoutY="293.0" mnemonicParsing="false" onAction="#Adicionar" prefHeight="34.0" prefWidth="100.0" text="Adicionar" textFill="#171616" />
+      <Label layoutX="147.0" layoutY="108.0" prefHeight="55.0" prefWidth="269.0" text="PROJETO DE ALGORITMOS" textFill="WHITE">
          <font>
-            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+            <Font name="Georgia Bold" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="Continuar" blendMode="HARD_LIGHT" layoutX="133.0" layoutY="268.0" mnemonicParsing="false" onAction="#Continuar" prefHeight="34.0" prefWidth="100.0" text="Continuar" textFill="#577464" />
-      <Button fx:id="Adicionar" blendMode="HARD_LIGHT" layoutX="348.0" layoutY="268.0" mnemonicParsing="false" onAction="#Adicionar" prefHeight="34.0" prefWidth="100.0" text="Adicionar" textFill="#577464" />
+      <Label layoutX="109.0" layoutY="130.0" prefHeight="55.0" prefWidth="386.0" text="CLIQUE &amp; CONNECTED COMPONENTS" textFill="WHITE">
+         <font>
+            <Font name="Georgia Bold" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

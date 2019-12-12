@@ -98,5 +98,13 @@ public class Clique {
 		}
 		return cidadesMaisAfetadas;
 	}
-  
+	
+//	public ArrayList<Pessoa> maiorIndex(ArrayList<String> cidades){
+//		ArrayList<Pessoa> esses = new ArrayList<>();
+//		for(int s=0; s<cidades.size(); s++) {
+//			esses.add(rep.getPessoasPorCidade().get(s));
+//		}
+//		return esses;
+//	}
+	
 }
