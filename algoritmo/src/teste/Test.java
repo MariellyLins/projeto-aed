@@ -1,11 +1,11 @@
 package teste;
 
-import basico.ConnectComponents;
 import basico.RepositorioPessoa;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class Test extends Application {
@@ -21,7 +21,8 @@ public class Test extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("/telas/fxmls/Tela1.fxml"));
 			Scene cena = new Scene(root);
 			primaryStage.setScene(cena);
-			primaryStage.setTitle("Alg");
+			primaryStage.setTitle("Algoritmos' Project");
+			primaryStage.getIcons().add(new Image("file:algoritmo\\src\\imagens\\line-chart.png"));
 			primaryStage.show();
 			} catch(Exception e) {
 			e.printStackTrace();
