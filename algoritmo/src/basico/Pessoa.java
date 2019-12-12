@@ -52,19 +52,19 @@ public class Pessoa {
 
 
 	
-	public Pessoa(String nome, String municipio, ArrayList<Pessoa> conhecidos)
+	public Pessoa(String nome, String municipio, ArrayList<Pessoa> conhecidos,ArrayList<Pessoa> vizinhos)
 	{
 		this.nome = nome;
 		this.cidade = municipio;
 		this.conhecidos = conhecidos;
 		this.conectado = false;
+		this.vizinhos = vizinhos;
 	}
 	
 	public Pessoa(String nome,String municipio)
 	{
 		this.nome = nome;
 		this.cidade = municipio;
-		this.conhecidos = new ArrayList<Pessoa>();
 		this.conectado = false;
 		
 	}

@@ -161,6 +161,8 @@ public class RepositorioPessoa {
 		Pessoa Falcão = new Pessoa("Luiz F. Falcão","Recife");
 		
 		
+		
+		
 		rep.cadastrar(Falcão);
 		rep.cadastrar(Fernando);
 		rep.cadastrar(Fernanda);
@@ -185,6 +187,8 @@ public class RepositorioPessoa {
         rep.addConhecidos(Fernando, Samuel);
         rep.addConhecidos(Samuel, Falcão);
         rep.addConhecidos(Jose, Samuel);
+       
+       
        
         
         //2

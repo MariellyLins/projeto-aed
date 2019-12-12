@@ -16,9 +16,6 @@ public class Test extends Application {
 	public void start(Stage primaryStage) {
 		rep.iniciarPessoas();
 		rep.iniciarPClique();
-		System.out.println(rep.getCidades().isEmpty());
-		System.out.println(rep.getCidades());
-		System.out.println(rep.getPessoas());
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("/telas/fxmls/Tela1.fxml"));
 			Scene cena = new Scene(root);
@@ -31,8 +28,6 @@ public class Test extends Application {
 		}	
 	}
 	public static void main(String[] args) {
-		 ConnectComponents c = new ConnectComponents();
-		 System.out.println(c.retornarCC());
 		launch(args);
 	}
 }

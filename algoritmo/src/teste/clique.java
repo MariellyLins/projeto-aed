@@ -11,7 +11,7 @@ import org.graphstream.graph.Graph;
 public class clique {
 
     public static void main(String[] args) {
-        Graph grafo = new SingleGraph("Teste");
+       /* Graph grafo = new SingleGraph("Teste");
 
         RepositorioPessoa rep = RepositorioPessoa.getInstance();
 
@@ -137,7 +137,7 @@ public class clique {
         //SpriteManager sman = new SpriteManager(grafo);
         // Sprite s = sman.addSprite("S1");
         // s.attachToNode("Maely Coutinho");
-        System.setProperty("org.graphstream.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
+       // System.setProperty("org.graphstream.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
 
         // Viewer viewer = grafo.display();
         // viewer.disableAutoLayout();
@@ -150,14 +150,16 @@ public class clique {
         }
         ConnectedComponents cc = new ConnectedComponents();
         cc.init(grafo);
-
-        System.out.printf("%d connected component(s) no grafo.%n", cc.getConnectedComponentsCount());
+       
+        //System.out.printf("%d connected component(s) no grafo.%n", cc.getConnectedComponentsCount());
+        
 
         grafo.display();
 
 //	    ArrayList<Pessoa> moramEmInventado = rep.buscarPorCidade("Inventado");
 //	    ArrayList<Pessoa> moramEmRecife = rep.buscarPorCidade("Recife");
 //	    ArrayList<Pessoa> moramEmVitoria = rep.buscarPorCidade("Vitoria");
+        */
     }
 
 }

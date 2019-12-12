@@ -83,7 +83,6 @@ public class ControladorTelas {
         stage.setScene(cena);
         stage.show();
 
-        //CC();
     }
 
     @FXML
@@ -148,7 +147,7 @@ public class ControladorTelas {
          Stage stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
          stage.setScene(cena);
          stage.show();
-         System.out.println(c.retornarCC());
+ 
     }
     @FXML
     public void ChamarGrafoCC() {
