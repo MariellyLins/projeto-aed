@@ -72,14 +72,7 @@ public class ConnectComponents {
 					System.out.println("valor mudou para "+algo.get(g));
 				}
     		}
-    		/*for(Object value: algo.values()) {
-	    		  if(erro.contains((Integer)value)) {
-	    			  System.out.println("Valor é "+ value);
-	    			  value = algo.get(t);
-	    			  System.out.println("valor mudou para "+value);
-	  	    		 
-	    		  }
-	    	}*/
+    		
     	}
 	}
 	
@@ -102,5 +95,13 @@ public class ConnectComponents {
     	limparCC();
     	return r.size();
     }
+
+	public Map<Pessoa, Integer> getAlgo() {
+		return algo;
+	}
+
+	public void setAlgo(Map<Pessoa, Integer> algo) {
+		this.algo = algo;
+	}
     
 }

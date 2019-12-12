@@ -1,6 +1,11 @@
 package basico;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 import org.graphstream.algorithm.ConnectedComponents;
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;
@@ -16,6 +21,7 @@ public class RepositorioPessoa {
 	private ArrayList<Pessoa> pessoasPorCidade = new ArrayList<>();
 	public Graph grafo = new SingleGraph("Teste");
 	public Graph  grafoCidade = new SingleGraph("Teste2");
+	private Map<Pessoa,Integer> Algo = new  HashMap<>();
 	
 
 	public static RepositorioPessoa getInstance(){
@@ -281,10 +287,13 @@ public class RepositorioPessoa {
         for(Edge e: grafo.getEdgeSet()) {
             e.setAttribute("ui.style", "shape: blob; size: 3px; arrow-shape: none;fill-color: #007d8b;");
         }
-        
-        ConnectedComponents cc = new ConnectedComponents();
-        cc.init(grafo);
+       
         grafo.display();
+        
+        
+        this.organizar();
+	
+         
         /*for(int i = 0; i < 30; i++) {
         	//exemplo de manipulação de grafo:
         	grafo.removeEdge("Marielly conhece Juliane");
@@ -327,9 +336,84 @@ public class RepositorioPessoa {
          for(Edge e: grafoCidade.getEdgeSet()) {
              e.setAttribute("ui.style", "shape: blob; size: 3px; arrow-shape: none;fill-color: #007d8b;");
          }
-         ConnectedComponents cc2 = new ConnectedComponents();
-         cc2.init(grafoCidade);
+         
          grafoCidade.display();
     }
+    
+    public void preencher() throws InterruptedException {
+		for(int i=0;i<this.getPessoas().size();i++) {
+			Thread.sleep(1000);
+			Integer j = i;
+			Algo.put(this.buscarInt(i),j);		
+			grafo.getNode(i).setAttribute("ui.label", i);
+			grafo.getNode(i).setAttribute("ui.style", " size: 30px;fill-mode: image-scaled-ratio-min; fill-image: url('imagens/bac.png');");
+		}
+	}
+	
+	public void organizar() throws InterruptedException {
+		preencher();
+		ArrayList<Pessoa> mudados = new ArrayList<>();
+		
+		for(int i=0;i<Algo.size();i++) {
+			Pessoa t = this.getPessoas().get(i);
+			
+			for(int j=0; j< this.getPessoas().get(i).getConhecidos().size();j++) {
+				if(this.getPessoas().get(i).getConhecidos().get(j).isConectado()) {
+					mudados.add(this.getPessoas().get(i).getConhecidos().get(j));					
+				}
+			}
+				
+			if(!mudados.isEmpty()) {	
+				Thread.sleep(1000);
+				Algo.replace(t,Algo.get(t),Algo.get(mudados.get(0)));
+				grafo.getNode(t.getNome()).setAttribute("ui.label",Algo.get(t));
+				grafo.getNode(t.getNome()).setAttribute("ui.style", " size: 30px;fill-mode: image-scaled-ratio-min; fill-image: url('imagens/bac.png');");
+					 
+				if(mudados.size()>1) {
+					ajeitandoGrafo(mudados,t);
+				}
+				mudados.clear();
+			}				
+				   
+			for(int j=0; j< this.getPessoas().get(i).getConhecidos().size();j++) {
+				Pessoa g = t.getConhecidos().get(j);
+				Algo.replace(g, Algo.get(g), Algo.get(t));
+				grafo.getNode(g.getNome()).setAttribute("ui.label",Algo.get(t));
+				grafo.getNode(g.getNome()).setAttribute("ui.style", " size: 30px;fill-mode: image-scaled-ratio-min; fill-image: url('imagens/bac.png');");
+				g.setConectado(true);	
+			}
+			t.setConectado(true);	  
+			
+		}
+		limparCC();
+	}
+	
+	public void ajeitandoGrafo(ArrayList<Pessoa> mudados,Pessoa t) throws InterruptedException {
+		Set<Integer> erro = new HashSet<>();
+		for(int i=0;i<mudados.size();i++) {
+			erro.add(Algo.get(mudados.get(i)));
+		}
+
+		if(erro.size()>1) {
+			for(int i=0; i< this.getPessoas().size();i++) {
+				Pessoa g = this.getPessoas().get(i);
+				if(erro.contains((Integer)Algo.get(g))) {
+					Thread.sleep(1000);
+					Algo.replace(g, Algo.get(g), Algo.get(t));
+					grafo.getNode(g.getNome()).setAttribute("ui.label",Algo.get(t));
+					grafo.getNode(g.getNome()).setAttribute("ui.style", " size: 30px;fill-mode: image-scaled-ratio-min; fill-image: url('imagens/bac.png');");
+					
+				}
+    		}
+    		
+    	}
+	}
+	
+	public void limparCC() {
+		for(int i=0;i<this.getPessoas().size();i++) {
+			this.getPessoas().get(i).setConectado(false);
+		}
+		Algo.clear();
+	}
 
 }
