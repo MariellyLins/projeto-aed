@@ -63,6 +63,12 @@ public class ControladorTelas {
     private Label nCC;
     @FXML
     private Button verGrafo;
+    @FXML
+    private Button verGrafoClique;
+
+    @FXML
+    private Label nClique;
+
 
 
 
@@ -144,11 +150,19 @@ public class ControladorTelas {
     public void ChamarGrafoCC() {
     	rep.acao();
     }
+    @FXML
+    void ChamarGrafoClique(ActionEvent event) {
+    	rep.acaoClique();
+    }
 
     @FXML
-    public void Clique() {
-
-        rep.acaoClique();
+    public void Clique(ActionEvent event) throws IOException {
+    	Parent janela = FXMLLoader.load(getClass().getResource("/telas/fxmls/Tela4.fxml"));
+        Scene cena = new Scene(janela);
+        Stage stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
+        stage.setScene(cena);
+        stage.show();
+        
     }
 
     @FXML
@@ -225,7 +239,12 @@ public class ControladorTelas {
             //e.printStackTrace();
         }
        
-    	
+        try {
+        	String f = "cidade";
+        	nClique.setText(f);
+        } catch (NullPointerException e) {
+            //e.printStackTrace();
+        }
 
     }
 }
