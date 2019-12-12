@@ -1,7 +1,5 @@
 package basico;
 
-
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -39,63 +37,66 @@ public class Clique {
 		}
 		return closed;
 	}
-	 public ArrayList<ArrayList<Pessoa>> Montando(){
+	 
+	public ArrayList<ArrayList<Pessoa>> Montando(){
        ArrayList<ArrayList<Pessoa>> cliques = new ArrayList<ArrayList<Pessoa>>();
        int w=0;
+       
        for(int i=0;i<rep.getPessoasPorCidade().size();i++){
          Pessoa temp = rep.getPessoasPorCidade().get(i);           
-            for(Pessoa p: temp.getVizinhos()){
+            
+         for(Pessoa p: temp.getVizinhos()){
               cliques.add(new ArrayList<Pessoa>());
-                for(Pessoa d: p.getVizinhos()){
-                     if(temp.getVizinhos().contains(d)){
-                       if(!cliques.get(w).contains(d)){
+                
+              for(Pessoa d: p.getVizinhos()){
+            	  if(temp.getVizinhos().contains(d)){
+            		  if(!cliques.get(w).contains(d)){
                           if(temp.getCidade().equals(d.getCidade()))
                              cliques.get(w).add(d);
-                       }
-                        
-                          
-                     }
-                }
-                  if(!cliques.get(w).contains(p)){
-                     if(temp.getCidade().equals(p.getCidade()))
-                       cliques.get(w).add(p);
-                  }
-                
-                if(!cliques.get(w).contains(temp)){
-                    cliques.get(w).add(temp);
-                }
+                       		}
+                        }
+                	}
               
-                w++;
+              if(!cliques.get(w).contains(p)){
+            	  if(temp.getCidade().equals(p.getCidade()))
+            		  cliques.get(w).add(p);
+              }
+                
+              if(!cliques.get(w).contains(temp)){
+            	  cliques.get(w).add(temp);
+              }
+              w++;
             }
-            
        }
        return cliques;
-  }
+	}
 	 
 
-  public ArrayList<String> MaiorIndice(){
-       ArrayList<ArrayList<Pessoa>> cliques = Montando();
-       ArrayList<String> cidadesMaisAfetadas = new ArrayList<String>();
-       int maior = -1;
-       int posi=0;
+	public ArrayList<String> MaiorIndice(){
+		ArrayList<ArrayList<Pessoa>> cliques = Montando();
+		ArrayList<String> cidadesMaisAfetadas = new ArrayList<String>();
+		int maior = -1;
+		int posi=0;
        
-       for(int i=0;i<cliques.size();i++){
-          if(cliques.get(i).size()>maior){
-              maior = cliques.get(i).size();
-              posi = i;
-          }
-       }
-       System.out.println(maior);
-       if(cliques.size()>0)
-         cidadesMaisAfetadas.add(cliques.get(posi).get(0).getCidade());
-       for(int i=0;i<cliques.size();i++){
-          if(cliques.get(i).size()== maior){
-              if(!cidadesMaisAfetadas.contains(cliques.get(i).get(0).getCidade()))
-               cidadesMaisAfetadas.add(cliques.get(i).get(0).getCidade());
-          }
-       }
+		for(int i=0;i<cliques.size();i++){
+			if(cliques.get(i).size()>maior){
+				maior = cliques.get(i).size();
+				posi = i;
+			}
+		}
        
-       return cidadesMaisAfetadas;
-  }
+		System.out.println(maior);
+       
+		if(cliques.size()>0)
+			cidadesMaisAfetadas.add(cliques.get(posi).get(0).getCidade());
+		
+		for(int i=0;i<cliques.size();i++){
+			if(cliques.get(i).size()== maior){
+				if(!cidadesMaisAfetadas.contains(cliques.get(i).get(0).getCidade()))
+					cidadesMaisAfetadas.add(cliques.get(i).get(0).getCidade());
+				}
+		}
+		return cidadesMaisAfetadas;
+	}
   
 }

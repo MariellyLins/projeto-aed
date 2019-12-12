@@ -17,7 +17,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import teste.clique;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Alert;
@@ -28,13 +27,10 @@ public class ControladorTelas {
     private ResourceBundle resources;
     @FXML
     private Stage dialogStage;
-
     @FXML
     private URL location;
-
     @FXML
     private Button Continuar;
-
     @FXML
     private Button Adicionar;
     @FXML
@@ -45,32 +41,24 @@ public class ControladorTelas {
     private TableColumn<Pessoa, String> cidade;
     @FXML
     private Button add;
-
     @FXML
     private Button adicionarLigacao;
-
     @FXML
     private Button sair;
-
     @FXML
     private TableView<Pessoa> tabelapart;
-
     @FXML
     private TableColumn<Pessoa, String> participantes;
-    
     @FXML
     private Label nCC;
     @FXML
     private Button verGrafo;
     @FXML
     private Button verGrafoClique;
-
     @FXML
     private Label nClique;
 
-
-
-
+    
     RepositorioPessoa rep = RepositorioPessoa.getInstance();
     ConnectComponents c = new ConnectComponents();
     Clique cl = new Clique();
@@ -134,8 +122,7 @@ public class ControladorTelas {
 
     @FXML
     public void removerParticipante() {
-
-        if (tabela.getSelectionModel().getSelectedItem() != null) {
+    	if (tabela.getSelectionModel().getSelectedItem() != null) {
             rep.remover(tabelapart.getSelectionModel().getSelectedItem());
         }
     }
@@ -153,6 +140,7 @@ public class ControladorTelas {
     public void ChamarGrafoCC() throws InterruptedException {
     	rep.acao();
     }
+    
     @FXML
     void ChamarGrafoClique(ActionEvent event) {
     	rep.acaoClique();
@@ -165,7 +153,6 @@ public class ControladorTelas {
         Stage stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
         stage.setScene(cena);
         stage.show();
-        
     }
 
     @FXML

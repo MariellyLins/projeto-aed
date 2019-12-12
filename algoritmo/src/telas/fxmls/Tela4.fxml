@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="486.0" prefWidth="563.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ControladorTelas">
    <children>
-      <ImageView fitHeight="486.0" fitWidth="563.0">
+      <ImageView fitHeight="486.0" fitWidth="563.0" opacity="0.8">
          <image>
             <Image url="@../../imagens/97039341_gettyimages-817426712.jpg" />
          </image>

@@ -14,12 +14,11 @@ public class RepositorioPessoa {
 	private ArrayList<String> cidades = new ArrayList<String>();
 	private ArrayList<Pessoa> cid = new ArrayList<>();
 	private ArrayList<Pessoa> pessoasPorCidade = new ArrayList<>();
-	 public Graph grafo = new SingleGraph("Teste");
-	 public Graph  grafoCidade = new SingleGraph("Teste2");
+	public Graph grafo = new SingleGraph("Teste");
+	public Graph  grafoCidade = new SingleGraph("Teste2");
 	
 
 	public static RepositorioPessoa getInstance(){
-		
 		if(instance == null) {
 			instance = new RepositorioPessoa();
 		}
@@ -36,7 +35,6 @@ public class RepositorioPessoa {
 		cidades.add("Inventado");
 		cidades.add("Boa Viagem");
 		cidades.add("Camaragibe");
-		
 	}
 	
 	public ArrayList<Pessoa> getCid() {
@@ -47,7 +45,7 @@ public class RepositorioPessoa {
 		this.cid = cid;
 	}
 
-	public void ganbiarra() {
+	public void gambiarra() {
 		ArrayList<Pessoa> um = buscarPorCidade(cidades.get(1));
 		ArrayList<Pessoa> dois = buscarPorCidade(cidades.get(2));
 		ArrayList<Pessoa> tres = buscarPorCidade(cidades.get(3));
@@ -58,7 +56,6 @@ public class RepositorioPessoa {
 		ArrayList<Pessoa> oito = buscarPorCidade(cidades.get(8));
 		ArrayList<Pessoa> zero = buscarPorCidade(cidades.get(0));
 		
-		
 		cid.add(um.get(0));
 		cid.add(dois.get(0));
 		cid.add(tres.get(0));
@@ -68,8 +65,8 @@ public class RepositorioPessoa {
 		cid.add(sete.get(0));
 		cid.add(oito.get(0));
 		cid.add(zero.get(0));
-		
 	}
+	
 	public ArrayList<String> getCidades() {
 		return cidades;
 	}
@@ -83,7 +80,6 @@ public class RepositorioPessoa {
 			p.addConhecidos(p1);
 			p1.addConhecidos(p);
 		}
-		
 	}
 	
 	public ArrayList<Pessoa> getPessoas() {
@@ -110,16 +106,19 @@ public class RepositorioPessoa {
 	public void remover(Pessoa p) {
 		pessoas.remove(p);
 	}
+	
 	public Pessoa buscar(String nome) {
 		for(int i=0;i<pessoas.size();i++) {
 			if(pessoas.get(i).getNome().equalsIgnoreCase(nome)){
 				return pessoas.get(i);
 			}
 		}
-			return null;
+		return null;
 	}
+	
 	public ArrayList<Pessoa> buscarPorCidade(String cidade) {
 		ArrayList<Pessoa> pm = new ArrayList<>();
+		
 		for(int i=0;i<pessoas.size();i++) {
 			if(pessoas.get(i).getCidade().equalsIgnoreCase(cidade)){
 				pm.add(pessoas.get(i));
@@ -127,9 +126,11 @@ public class RepositorioPessoa {
 		}
 		return pm;
 	}
+	
 	public String toString(){
 		String a;
 		String b="";
+		
 		for(int i=0;i<pessoas.size();i++) {
 			 a = i+" - "+ pessoas.get(i).toString()+"\n";
 			 b = b+a;
@@ -164,9 +165,6 @@ public class RepositorioPessoa {
 		Pessoa Fernando = new Pessoa("Luiz Fernando","Camaragibe");
 		Pessoa Falcão = new Pessoa("Luiz F. Falcão","Recife");
 		
-		
-		
-		
 		rep.cadastrar(Falcão);
 		rep.cadastrar(Fernando);
 		rep.cadastrar(Fernanda);
@@ -185,17 +183,12 @@ public class RepositorioPessoa {
 		rep.cadastrar(Carlos);
 		rep.cadastrar(MariaLucia);
 		
-
 		//1
         rep.addConhecidos(Fernando,Falcão);
         rep.addConhecidos(Fernando, Samuel);
         rep.addConhecidos(Samuel, Falcão);
         rep.addConhecidos(Jose, Samuel);
        
-       
-       
-       
-        
         //2
 		rep.addConhecidos(MariaLucia,Matheus);
 		rep.addConhecidos(MariaLucia,MariadasDores);
@@ -220,7 +213,7 @@ public class RepositorioPessoa {
 	    rep.addConhecidos(Juliane,Maely);
 	    rep.addConhecidos(Juliane,MariaGuilia);
 	    
-	    ganbiarra();
+	    gambiarra();
 	}
 	
 	public void iniciarPClique() {
@@ -251,17 +244,15 @@ public class RepositorioPessoa {
 		this.pessoasPorCidade.get(11).getVizinhos().add(this.pessoasPorCidade.get(15));
 		this.pessoasPorCidade.get(15).getVizinhos().add(this.pessoasPorCidade.get(4));
 		this.pessoasPorCidade.get(4).getVizinhos().add(this.pessoasPorCidade.get(15));
-		
-		
-		
 	}
 	
     public void acao() throws InterruptedException {
         RepositorioPessoa rep = RepositorioPessoa.getInstance();
+        
         for (int i = 0; i < rep.getPessoas().size(); i++) {
             grafo.addNode(rep.buscarInt(i).getNome());
-
         }
+        
         for (int i = 0; i < rep.getPessoas().size(); i++) {
             for (int j = 0; j < rep.buscarInt(i).getConhecidos().size(); j++) {
                 if ((grafo.getEdge(rep.buscarInt(i).getConhecidos().get(j).getNome() + " conhece " + rep.buscarInt(i).getNome())) == null) {
@@ -271,10 +262,12 @@ public class RepositorioPessoa {
         }
         //evita erros quando tentamos buscar algo inexistente:
         grafo.setStrict(false);
+        
         //(tem exemplos no site graphStream de estilos de edição)
         //melhorar qualidade do grafo:
         grafo.addAttribute("ui.quality");
         grafo.addAttribute("ui.antialias");
+        
         //importar imagem de fundo:
         grafo.addAttribute("ui.stylesheet", "graph { fill-mode: image-scaled-ratio-max; fill-image: url('imagens/vacina.jpg'); }");
         
@@ -283,6 +276,7 @@ public class RepositorioPessoa {
         	node.addAttribute("ui.label", node.getId());
         	grafo.getNode(node.getId()).setAttribute("ui.style", " size: 30px;fill-mode: image-scaled-ratio-min; fill-image: url('imagens/bac.png');");
         }
+        
         //atributos das arestas 
         for(Edge e: grafo.getEdgeSet()) {
             e.setAttribute("ui.style", "shape: blob; size: 3px; arrow-shape: none;fill-color: #007d8b;");
@@ -297,13 +291,13 @@ public class RepositorioPessoa {
           //para esperar tempo antes de fazer ação:
             Thread.sleep(1000);
         }*/
-
     }
     
     public void acaoClique() {
          for (int i = 0; i < this.pessoasPorCidade.size(); i++) {
         	 grafoCidade.addNode(this.pessoasPorCidade.get(i).getNome());
          }
+         
          for (int i = 0; i < this.pessoasPorCidade.size(); i++) {
              for (int j = 0; j <this.pessoasPorCidade.get(i).getVizinhos().size(); j++) {
                  if (( grafoCidade.getEdge(this.pessoasPorCidade.get(i).getVizinhos().get(j).getNome() + " conhece " + this.pessoasPorCidade.get(i).getNome())) == null) {
@@ -314,10 +308,12 @@ public class RepositorioPessoa {
   
        //evita erros quando tentamos buscar algo inexistente:
          grafoCidade.setStrict(false);
+         
          //(tem exemplos no site graphStream de estilos de edição)
          //melhorar qualidade do grafo:
          grafoCidade.addAttribute("ui.quality");
          grafoCidade.addAttribute("ui.antialias");
+         
          //importar imagem de fundo:
          grafoCidade.addAttribute("ui.stylesheet", "graph { fill-mode: image-scaled-ratio-max; fill-image: url('imagens/População_pernambuco.png'); }");
          
@@ -326,6 +322,7 @@ public class RepositorioPessoa {
          	node.addAttribute("ui.label", node.getId());
          	grafoCidade.getNode(node.getId()).setAttribute("ui.style", " size: 30px;fill-mode: image-scaled-ratio-min; fill-image: url('imagens/bac.png');");
          }
+         
          //atributos das arestas 
          for(Edge e: grafoCidade.getEdgeSet()) {
              e.setAttribute("ui.style", "shape: blob; size: 3px; arrow-shape: none;fill-color: #007d8b;");
