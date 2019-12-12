@@ -41,11 +41,11 @@ public class Clique {
        ArrayList<ArrayList<Pessoa>> cliques = new ArrayList<ArrayList<Pessoa>>();
        int w=0;
        for(int i=0;i<rep.getPessoasPorCidade().size();i++){
-         Pessoa temp = rep.getPessoasPorCidade().get(i);
-           cliques.add(new ArrayList<Pessoa>());
-            for(Pessoa p: temp.getVizinhos){
+         Pessoa temp = rep.getPessoasPorCidade().get(i);           
+            for(Pessoa p: temp.getVizinhos()){
+              cliques.add(new ArrayList<Pessoa>());
                 for(Pessoa d: p.getVizinhos()){
-                     if(temp.getVizinhos.contains(d)){
+                     if(temp.getVizinhos().contains(d)){
                          cliques.get(w).add(d);
                      }
                 }
@@ -62,16 +62,19 @@ public class Clique {
        ArrayList<ArrayList<Pessoa>> cliques = Montando();
        ArrayList<String> cidadesMaisAfetadas = new ArrayList<String>();
        int maior = -1;
-       int posi;
+       int posi=0;
        for(int i=0;i<cliques.size();i++){
           if(cliques.get(i).size()>maior){
               maior = cliques.get(i).size();
               posi = i;
           }
        }
-       cidadesMaisAfetadas.add(cliques.get(posi).get(0).getCidade());
+       System.out.println(maior);
+       if(cliques.size()>0)
+         cidadesMaisAfetadas.add(cliques.get(posi).get(0).getCidade());
        for(int i=0;i<cliques.size();i++){
           if(cliques.get(i).size()== maior){
+              if(!cidadesMaisAfetadas.contains(cliques.get(i).get(0).getCidade()))
                cidadesMaisAfetadas.add(cliques.get(i).get(0).getCidade());
           }
        }
