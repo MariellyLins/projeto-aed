@@ -46,10 +46,13 @@ public class Clique {
               cliques.add(new ArrayList<Pessoa>());
                 for(Pessoa d: p.getVizinhos()){
                      if(temp.getVizinhos().contains(d)){
-                         cliques.get(w).add(d);
+                         if(!cliques.get(w).contains(d))
+                          cliques.get(w).add(d);
                      }
                 }
+                if(!cliques.get(w).contains(p))
                 cliques.get(w).add(p);
+                if(!cliques.get(w).contains(temp))
                 cliques.get(w).add(temp);
                 w++;
             }
