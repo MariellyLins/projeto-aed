@@ -37,7 +37,7 @@ public class RepositorioPessoa {
 		cidades.add("Ribeirao");
 		cidades.add("Socorro");
 		cidades.add("Caruaru");
-		cidades.add("Boa Viagem");
+		cidades.add("Garanhuns");
 		cidades.add("Camaragibe");
 	}
 
@@ -165,7 +165,7 @@ public class RepositorioPessoa {
 		Pessoa Victor = new Pessoa("Joao Victor","Olinda");
 		Pessoa Samuel = new Pessoa("Samuel Justino","Recife");
 		Pessoa Rodrigues = new Pessoa("Jose Rodrigues","Vitoria");
-		Pessoa Lucas = new Pessoa("Lucas","Boa Viagem");
+		Pessoa Lucas = new Pessoa("Lucas","Garanhuns");
 		Pessoa Fernando = new Pessoa("Luiz Fernando","Camaragibe");
 		Pessoa Falcao = new Pessoa("Luiz F. Falcao","Recife");
 
