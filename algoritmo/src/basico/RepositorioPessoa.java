@@ -337,9 +337,68 @@ public class RepositorioPessoa {
 		}
 
 		grafoCidade.display();
-		explore(grafoCidade.getNode(0));
+		//explore(grafoCidade.getNode(0));
+		MudandoSprite();
 	}
 
+	public ArrayList<ArrayList<Pessoa>> teste(){
+	       ArrayList<ArrayList<Pessoa>> cliques = new ArrayList<ArrayList<Pessoa>>();
+	       int w=0;
+	       
+	       for(int i=0;i<this.getPessoasPorCidade().size();i++){
+	         Pessoa temp = this.getPessoasPorCidade().get(i);           
+	            
+	         for(Pessoa p: temp.getVizinhos()){
+	              cliques.add(new ArrayList<Pessoa>());
+	                
+	              for(Pessoa d: p.getVizinhos()){
+	            	  if(temp.getVizinhos().contains(d)){
+	            		  if(!cliques.get(w).contains(d)){
+	                          if(temp.getCidade().equals(d.getCidade()))
+	                             cliques.get(w).add(d);
+	                       		}
+	                        }
+	                	}
+	              
+	              if(!cliques.get(w).contains(p)){
+	            	  if(temp.getCidade().equals(p.getCidade()))
+	            		  cliques.get(w).add(p);
+	              }
+	                
+	              if(!cliques.get(w).contains(temp)){
+	            	  cliques.get(w).add(temp);
+	              }
+	              w++;
+	            }
+	       }
+	       return cliques;
+		}
+		 
+
+		public void MudandoSprite(){
+			ArrayList<ArrayList<Pessoa>> cliques = teste();
+			int maior = -1;
+			int posi=0;
+	       
+			for(int i=0;i<cliques.size();i++){
+				if(cliques.get(i).size()>maior){
+					maior = cliques.get(i).size();
+					posi = i;
+				}
+			}
+	       
+			
+			for(int i=0;i<cliques.size();i++){
+				if(cliques.get(i).size()== maior){
+					for(int j=0;j<cliques.get(i).size();j++) {
+						sleep();
+						grafoCidade.getNode(cliques.get(i).get(j).getNome()).setAttribute("ui.style", "text-alignment: at-right; text-padding: 3px, 2px; text-background-mode: rounded-box; text-background-color: #A7CC; text-color: white; text-style: bold-italic; text-color: green; text-offset: 5px, 0px;  size: 30px;fill-mode: image-scaled-ratio-min; fill-image: url('imagens/bomb animation spritesheet (2).png');");
+					}
+					
+				}
+			}
+			
+		}
 	public void explore(Node source) {
 		Iterator<? extends Node> k = source.getBreadthFirstIterator();
 		Node aux = null;
