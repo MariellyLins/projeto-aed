@@ -454,7 +454,7 @@ public class RepositorioPessoa {
 				Thread.sleep(1000);
 				Algo.replace(t,Algo.get(t),Algo.get(mudados.get(0)));
 				grafo.getNode(t.getNome()).setAttribute("ui.label",Algo.get(t));
-				grafo.getNode(t.getNome()).setAttribute("ui.style", " size: 30px;fill-mode: image-scaled-ratio-min; fill-image: url('imagens/bac.png');");
+				grafo.getNode(t.getNome()).setAttribute("ui.style", " size: 30px;fill-mode: image-scaled-ratio-min; fill-image: url('imagens/relogio.png');");
 
 				if(mudados.size()>1) {
 					ajeitandoGrafo(mudados,t);
@@ -466,7 +466,7 @@ public class RepositorioPessoa {
 				Pessoa g = t.getConhecidos().get(j);
 				Algo.replace(g, Algo.get(g), Algo.get(t));
 				grafo.getNode(g.getNome()).setAttribute("ui.label",Algo.get(t));
-				grafo.getNode(g.getNome()).setAttribute("ui.style", " size: 30px;fill-mode: image-scaled-ratio-min; fill-image: url('imagens/bac.png');");
+				grafo.getNode(g.getNome()).setAttribute("ui.style", " size: 30px;fill-mode: image-scaled-ratio-min; fill-image: url('imagens/relogio.png');");
 				g.setConectado(true);	
 			}
 			t.setConectado(true);	  
@@ -488,13 +488,14 @@ public class RepositorioPessoa {
 					Thread.sleep(1000);
 					Algo.replace(g, Algo.get(g), Algo.get(t));
 					grafo.getNode(g.getNome()).setAttribute("ui.label",Algo.get(t));
-					grafo.getNode(g.getNome()).setAttribute("ui.style", " size: 30px;fill-mode: image-scaled-ratio-min; fill-image: url('imagens/bac.png');");
+					grafo.getNode(g.getNome()).setAttribute("ui.style", " size: 30px;fill-mode: image-scaled-ratio-min; fill-image: url('imagens/relogio.png');");
 
 				}
 			}
 
 		}
 	}
+	
 
 	public void limparCC() {
 		for(int i=0;i<this.getPessoas().size();i++) {
@@ -502,6 +503,7 @@ public class RepositorioPessoa {
 		}
 		Algo.clear();
 	}
+	
 
 	public ArrayList<ArrayList<Pessoa>> Montando(){
 		ArrayList<ArrayList<Pessoa>> cliques = new ArrayList<ArrayList<Pessoa>>();
