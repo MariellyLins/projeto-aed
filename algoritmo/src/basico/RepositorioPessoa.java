@@ -300,7 +300,7 @@ public class RepositorioPessoa {
         }*/
 	}
 
-	public void acaoClique() {
+	public void acaoClique() throws InterruptedException {
 		for (int i = 0; i < this.pessoasPorCidade.size(); i++) {
 			grafoCidade.addNode(this.pessoasPorCidade.get(i).getNome());
 		}
@@ -349,24 +349,29 @@ public class RepositorioPessoa {
 	         Pessoa temp = this.getPessoasPorCidade().get(i);           
 	            
 	         for(Pessoa p: temp.getVizinhos()){
-	              cliques.add(new ArrayList<Pessoa>());
-	                
+	              cliques.add(new ArrayList<Pessoa>());	                
 	              for(Pessoa d: p.getVizinhos()){
+	            	  sleep();
 	            	  if(temp.getVizinhos().contains(d)){
 	            		  if(!cliques.get(w).contains(d)){
-	                          if(temp.getCidade().equals(d.getCidade()))
-	                             cliques.get(w).add(d);
-	                       		}
+	                          if(temp.getCidade().equals(d.getCidade())) {
+	                        	   cliques.get(w).add(d);
+	                               grafoCidade.getNode(d.getNome()).setAttribute("ui.style", "text-alignment: at-right; text-padding: 3px, 2px; text-background-mode: rounded-box; text-background-color: #A7CC; text-color: white; text-style: bold-italic; text-color: green; text-offset: 5px, 0px;  size: 30px;fill-mode: image-scaled-ratio-min; fill-image: url('imagens/relogio.png');");
+	                             }
+	                               
+	                       	  }
 	                        }
 	                	}
 	              
 	              if(!cliques.get(w).contains(p)){
 	            	  if(temp.getCidade().equals(p.getCidade()))
 	            		  cliques.get(w).add(p);
+	            	      grafoCidade.getNode(p.getNome()).setAttribute("ui.style", "text-alignment: at-right; text-padding: 3px, 2px; text-background-mode: rounded-box; text-background-color: #A7CC; text-color: white; text-style: bold-italic; text-color: green; text-offset: 5px, 0px;  size: 30px;fill-mode: image-scaled-ratio-min; fill-image: url('imagens/relogio.png');");
 	              }
 	                
 	              if(!cliques.get(w).contains(temp)){
 	            	  cliques.get(w).add(temp);
+	            	  grafoCidade.getNode(temp.getNome()).setAttribute("ui.style", "text-alignment: at-right; text-padding: 3px, 2px; text-background-mode: rounded-box; text-background-color: #A7CC; text-color: white; text-style: bold-italic; text-color: green; text-offset: 5px, 0px;  size: 30px;fill-mode: image-scaled-ratio-min; fill-image: url('imagens/relogio.png');");
 	              }
 	              w++;
 	            }
@@ -375,7 +380,7 @@ public class RepositorioPessoa {
 		}
 		 
 
-		public void MudandoSprite(){
+		public void MudandoSprite() throws InterruptedException{
 			ArrayList<ArrayList<Pessoa>> cliques = teste();
 			int maior = -1;
 			int posi=0;
@@ -386,12 +391,15 @@ public class RepositorioPessoa {
 					posi = i;
 				}
 			}
-	       
+	        for(int i=0;i<this.pessoasPorCidade.size();i++) {
+	        	Thread.sleep(10);
+	        	grafoCidade.getNode(pessoasPorCidade.get(i).getNome()).setAttribute("ui.style", "text-alignment: at-right; text-padding: 3px, 2px; text-background-mode: rounded-box; text-background-color: #A7CC; text-color: white; text-style: bold-italic; text-color: green; text-offset: 5px, 0px;  size: 30px;fill-mode: image-scaled-ratio-min; fill-image: url('imagens/bac.png');");
+	        }
 			
 			for(int i=0;i<cliques.size();i++){
 				if(cliques.get(i).size()== maior){
 					for(int j=0;j<cliques.get(i).size();j++) {
-						sleep();
+						Thread.sleep(500);
 						grafoCidade.getNode(cliques.get(i).get(j).getNome()).setAttribute("ui.style", "text-alignment: at-right; text-padding: 3px, 2px; text-background-mode: rounded-box; text-background-color: #A7CC; text-color: white; text-style: bold-italic; text-color: green; text-offset: 5px, 0px;  size: 30px;fill-mode: image-scaled-ratio-min; fill-image: url('imagens/bomb animation spritesheet (2).png');");
 					}
 					
@@ -416,7 +424,7 @@ public class RepositorioPessoa {
 	}
 
 	protected void sleep() {
-		try { Thread.sleep(1000); } catch (Exception e) {}
+		try { Thread.sleep(100); } catch (Exception e) {}
 	}
 
 	public void preencher() throws InterruptedException {

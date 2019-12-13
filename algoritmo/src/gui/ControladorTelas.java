@@ -147,7 +147,7 @@ public class ControladorTelas {
     }
     
     @FXML
-    void ChamarGrafoClique(ActionEvent event) {
+    void ChamarGrafoClique(ActionEvent event) throws InterruptedException {
     	rep.acaoClique();
     }
 
