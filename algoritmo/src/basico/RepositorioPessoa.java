@@ -30,13 +30,13 @@ public class RepositorioPessoa {
 	}
 
 	private RepositorioPessoa() {
-		cidades.add("VitÃ³ria");
+		cidades.add("Vitoria");
 		cidades.add("Recife");
-		cidades.add("NÃ£o existe");
+		cidades.add("Palmares");
 		cidades.add("Olinda");
-		cidades.add("RibeirÃ£o");
+		cidades.add("Ribeirao");
 		cidades.add("Socorro");
-		cidades.add("Inventado");
+		cidades.add("Caruaru");
 		cidades.add("Boa Viagem");
 		cidades.add("Camaragibe");
 	}
@@ -151,23 +151,23 @@ public class RepositorioPessoa {
 
 	public void iniciarPessoas() {
 		RepositorioPessoa rep = RepositorioPessoa.getInstance();
-		Pessoa MariaLucia = new Pessoa("Maria Lucia da Silva","Inventado");
-		Pessoa MariadasDores = new Pessoa("Maria das Dores Costa","Inventado");
-		Pessoa Carlos = new Pessoa("Carlos Bragão","Não existe");
-		Pessoa Jose = new Pessoa("José Rocha","Vitória");
-		Pessoa Marielly = new Pessoa("Marielly","Ribeirão");
-		Pessoa Juliane = new Pessoa("Juliane","Inventado");
+		Pessoa MariaLucia = new Pessoa("Maria Lucia da Silva","Palmares");
+		Pessoa MariadasDores = new Pessoa("Maria das Dores Costa","Palmares");
+		Pessoa Carlos = new Pessoa("Carlos Bragao","Caruaru");
+		Pessoa Jose = new Pessoa("Jose Rocha","Vitoria");
+		Pessoa Marielly = new Pessoa("Marielly","Ribeirao");
+		Pessoa Juliane = new Pessoa("Juliane","Palmares");
 		Pessoa Maely = new Pessoa("Maely Coutinho","Socorro");
-		Pessoa MariaGuilia = new Pessoa("Maria Guilia","Vitória");
+		Pessoa MariaGuilia = new Pessoa("Maria Guilia","Vitoria");
 		Pessoa Fernanda = new Pessoa("Fernanda","Recife");
 		Pessoa Sabrina = new Pessoa("Sabrina","Recife");
-		Pessoa Matheus = new Pessoa("Matheus Felipe","Inventado");
-		Pessoa Victor = new Pessoa("João Victor","Olinda");
+		Pessoa Matheus = new Pessoa("Matheus Felipe","Palmares");
+		Pessoa Victor = new Pessoa("Joao Victor","Olinda");
 		Pessoa Samuel = new Pessoa("Samuel Justino","Recife");
-		Pessoa Rodrigues = new Pessoa("José Rodrigues","Vitória");
+		Pessoa Rodrigues = new Pessoa("Jose Rodrigues","Vitoria");
 		Pessoa Lucas = new Pessoa("Lucas","Boa Viagem");
 		Pessoa Fernando = new Pessoa("Luiz Fernando","Camaragibe");
-		Pessoa Falcao = new Pessoa("Luiz F. Falcão","Recife");
+		Pessoa Falcao = new Pessoa("Luiz F. Falcao","Recife");
 
 		rep.cadastrar(Falcao);
 		rep.cadastrar(Fernando);
@@ -216,6 +216,8 @@ public class RepositorioPessoa {
 		rep.addConhecidos(Juliane,Fernanda);
 		rep.addConhecidos(Juliane,Maely);
 		rep.addConhecidos(Juliane,MariaGuilia);
+		
+		gambiarra();
 	}
 
 	public void iniciarPClique() {
@@ -271,12 +273,12 @@ public class RepositorioPessoa {
 		grafo.addAttribute("ui.antialias");
 
 		//importar imagem de fundo:
-		grafo.addAttribute("ui.stylesheet", "graph { fill-mode: image-scaled-ratio-max; fill-image: url('imagens/vacina.jpg'); }");
+		grafo.addAttribute("ui.stylesheet", "graph { fill-mode: image-scaled-ratio-max; fill-image: url('imagens/vacina4.png'); }");
 
 		//determinar atributos do no
 		for (Node node : grafo.getNodeSet()) {
 			node.addAttribute("ui.label", node.getId());
-			grafo.getNode(node.getId()).setAttribute("ui.style", " size: 30px;fill-mode: image-scaled-ratio-min; fill-image: url('imagens/bac.png');");
+			grafo.getNode(node.getId()).setAttribute("ui.style", "text-alignment: at-right; text-padding: 3px, 2px; text-background-mode: rounded-box; text-background-color: #A7CC; text-color: white; text-style: bold-italic; text-color: green; text-offset: 5px, 0px;  size: 30px; size: 30px;fill-mode: image-scaled-ratio-min; fill-image: url('imagens/bac.png');");
 		}
 
 		//atributos das arestas 
@@ -285,7 +287,7 @@ public class RepositorioPessoa {
 		}
 
 		grafo.display();
-
+       
 
 		this.organizar();
 
@@ -320,7 +322,7 @@ public class RepositorioPessoa {
 		grafoCidade.addAttribute("ui.antialias");
 
 		//importar imagem de fundo:
-		grafoCidade.addAttribute("ui.stylesheet", "graph { fill-mode: image-scaled-ratio-max; fill-image: url('imagens/PopulaÃ§Ã£o_pernambuco.png'); }");
+		grafoCidade.addAttribute("ui.stylesheet", "graph { fill-mode: image-scaled-ratio-max; fill-image: url('imagens/clique.png'); }");
 
 		//determinar atributos do no
 		for (Node node :grafoCidade.getNodeSet()) {
@@ -346,7 +348,10 @@ public class RepositorioPessoa {
 			if(next.getDegree() >= higherDegree() || next.hasEdgeBetween(aux)) {
 				next.setAttribute("ui.style", "text-alignment: at-right; text-padding: 3px, 2px; text-background-mode: rounded-box; text-background-color: #A7CC; text-color: white; text-style: bold-italic; text-color: green; text-offset: 5px, 0px;  size: 30px;fill-mode: image-scaled-ratio-min; fill-image: url('imagens/bomb animation spritesheet (2).png');");
 				aux = next;
+				if(source.getDegree()>=higherDegree() || source.hasEdgeBetween(aux))
+				source.setAttribute("ui.style", "text-alignment: at-right; text-padding: 3px, 2px; text-background-mode: rounded-box; text-background-color: #A7CC; text-color: white; text-style: bold-italic; text-color: green; text-offset: 5px, 0px;  size: 30px;fill-mode: image-scaled-ratio-min; fill-image: url('imagens/bomb animation spritesheet (2).png');");
 			}
+			
 			sleep();
 		}
 	}
